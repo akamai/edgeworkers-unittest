@@ -1,4 +1,4 @@
-import * as edgeworker from "../src/ben-test/main.js";
+import * as edgeworker from "../src/main.js";
 
 test("onClientRequest does nothing", () => {
   let request = { host: "https://www.akamai.com" };
