@@ -3,6 +3,10 @@ import Request from "../../../__mocks__/object/request";
 
 describe('onClientRequest should modify forward path based on device type to point to device specific content', () => {
 
+    beforeEach(() => {
+        jest.clearAllMocks();
+    });
+    
     test("onClientRequest should modify forward path to /mobile if device type is mobile", () => {
         let requestMock = new Request();
         requestMock.device.isMobile = true;
