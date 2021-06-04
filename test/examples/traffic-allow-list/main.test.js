@@ -3,6 +3,10 @@ import Request from "../../../__mocks__/object/request";
 
 describe('onClientRequest should modify allow or deny message depending on country of end user', () => {
 
+    beforeEach(() => {
+        jest.clearAllMocks();
+    });
+    
     test("onClientRequest should allow message if country of end user is not present in US embargoed countries list", () => {
         let requestMock = new Request();
         requestMock.userLocation.country = 'CA';
