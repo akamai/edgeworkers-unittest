@@ -13,7 +13,7 @@ export const CountQueuingStrategy = jest.fn().mockImplementation(() => {
 // ReadableStream mock
 export const mock_ReadableStream_cancel = jest.fn();
 export const mock_ReadableStream_getReader = jest.fn();
-export const mock_ReadableStream_pipeThrough = jest.fn();
+export const mock_ReadableStream_pipeThrough = jest.fn().mockReturnThis();
 export const mock_ReadableStream_pipeTo = jest.fn();
 export const mock_ReadableStream_tee = jest.fn();
 

@@ -18,7 +18,7 @@ describe('wrap JSON response with dynamic unique callback function leveraging Re
         let mockHttpResponse = new HttpResponse();
     
         mock_URLSearchParams_toString.mockReturnValue("param1=value1");
-        createResponse.mockReturnValue({"status":"success"});
+        createResponse.mockReturnValue({"status":200, "headers":{}, "body":{}});
         httpRequest.mockReturnValue(new Promise(function(resolve) {resolve(mockHttpResponse)}));
 
         const responsePromise = responseProvider(requestMock);
@@ -27,8 +27,7 @@ describe('wrap JSON response with dynamic unique callback function leveraging Re
         expect(TransformStream).toHaveBeenCalledTimes(1);
         expect(httpRequest).toHaveBeenCalledWith("https://www.example.com/helloworld?param1=value1", { 'Content-Type': ['application/json'] });
         responsePromise.then( (response) => {
-            console.log(response);
-            expect(response).toEqual({"status":"success"});
+            expect(response).toEqual({"status":200, "headers":{}, "body":{}});
         }).catch((error)=>console.log(error));
                
     });
