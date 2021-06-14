@@ -40,15 +40,12 @@ const categories =
       ];
 
 export function onClientRequest (request) {
-    console.log(request.path.match(/\/commerce\/categories/));
   if (request.path.match(/\/commerce\/categories/)) {
     const params = new URLSearchParams(request.query);
     const search = params.get('search');
     if (search) {
       const re = new RegExp(search, 'i');
-      console.log(re);
       var data = categories.filter(el => el.title.match(re) || el.desc.match(re) || el.id === search);
-      console.log(data);
       request.respondWith(200, { 'Content-Type': ['application/json'] }, JSON.stringify(data));
     }
   }
