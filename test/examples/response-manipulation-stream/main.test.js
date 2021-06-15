@@ -5,7 +5,7 @@ import Request from "../../../__mocks__/object/request";
 import {TextDecoderStream, TextEncoderStream} from "../../../__mocks__/text-encode-transform";
 
 
-describe('demonstrates how an EdgeWorker an EdgeWorker can be used to modify an HTML response stream by adding content to the response.', () => {
+describe('demonstrates how an EdgeWorker can be used to modify an HTML response stream by adding content to the response.', () => {
 
     beforeEach(() => {
         jest.clearAllMocks();
@@ -24,4 +24,3 @@ describe('demonstrates how an EdgeWorker an EdgeWorker can be used to modify an 
     });
 
 });
-
