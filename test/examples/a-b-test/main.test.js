@@ -1,7 +1,4 @@
-import {Cookies, SetCookies} from "../../../__mocks__/cookies";
 import {mock_Cookies_get, mock_Cookies_add, mock_Cookies_delete, mock_SetCookie_toHeader, mock_Cookies_toHeader} from "../../../__mocks__/cookies";
-import URLSearchParams from "../../../__mocks__/url-search-params";
-import {mock_URLSearchParams_get, mock_URLSearchParams_append, mock_URLSearchParams_toString} from "../../../__mocks__/url-search-params";
 import {onClientRequest, onClientResponse} from "../../../src/examples/a-b-test/main";
 import Request from "../../../__mocks__/object/request";
 import Response from "../../../__mocks__/object/response";
@@ -15,17 +12,13 @@ describe('assign a new user to a group for A/B testing ', () => {
     test("randomly assign", () => {
         let requestMock = new Request();
         onClientRequest(requestMock);
+        
         expect(mock_Cookies_get).toHaveBeenCalledTimes(1);
         expect(mock_Cookies_get).toHaveBeenCalledWith('testGroup');
-        expect(mock_URLSearchParams_get).toHaveBeenCalledTimes(1);
-        expect(mock_URLSearchParams_get).toHaveBeenCalledWith('testGroup');
-
         expect(mock_Cookies_delete).toHaveBeenCalledTimes(1);
         expect(mock_Cookies_delete).toHaveBeenCalledWith('testGroup');
         expect(mock_Cookies_add).toHaveBeenCalledTimes(1);
         expect(requestMock.setHeader).toHaveBeenCalledTimes(1);
-
-        expect(mock_URLSearchParams_append).toHaveBeenCalledTimes(1);
         expect(requestMock.route).toHaveBeenCalledTimes(1);
     });
 
@@ -34,19 +27,13 @@ describe('assign a new user to a group for A/B testing ', () => {
         requestMock.host = "www.example.com?testGroup=B"
         requestMock.query = "testGroup=B";
         mock_Cookies_get.mockReturnValue("B");
-        mock_URLSearchParams_toString.mockReturnValue('testGroup=B');
-        mock_URLSearchParams_get.mockReturnValue('B');
+
         onClientRequest(requestMock);
         expect(mock_Cookies_get).toHaveBeenCalledTimes(1);
         expect(mock_Cookies_get).toHaveBeenCalledWith('testGroup');
-        expect(mock_URLSearchParams_get).toHaveBeenCalledTimes(1);
-        expect(mock_URLSearchParams_get).toHaveBeenCalledWith('testGroup');
-
         expect(mock_Cookies_delete).not.toHaveBeenCalled();
         expect(mock_Cookies_add).not.toHaveBeenCalled();
         expect(requestMock.setHeader).not.toHaveBeenCalled();
-
-        expect(mock_URLSearchParams_append).not.toHaveBeenCalled();
         expect(requestMock.route).not.toHaveBeenCalled();
     });
 
@@ -55,23 +42,17 @@ describe('assign a new user to a group for A/B testing ', () => {
         requestMock.host = "www.example.com?testGroup=B"
         requestMock.query = "testGroup=B";
         mock_Cookies_get.mockReturnValue("A");
-        mock_URLSearchParams_toString.mockReturnValue('testGroup=B');
-        mock_URLSearchParams_get.mockReturnValue('B');
         mock_Cookies_toHeader.mockReturnValue('B');
+
         onClientRequest(requestMock);
         expect(mock_Cookies_get).toHaveBeenCalledTimes(1);
         expect(mock_Cookies_get).toHaveBeenCalledWith('testGroup');
-        expect(mock_URLSearchParams_get).toHaveBeenCalledTimes(1);
-        expect(mock_URLSearchParams_get).toHaveBeenCalledWith('testGroup');
-
         expect(mock_Cookies_delete).toHaveBeenCalled();
         expect(mock_Cookies_delete).toHaveBeenCalledWith("testGroup");
         expect(mock_Cookies_add).toHaveBeenCalled();
         expect(mock_Cookies_add).toHaveBeenCalledWith("testGroup", "B");
         expect(requestMock.setHeader).toHaveBeenCalled();
         expect(requestMock.setHeader).toHaveBeenCalledWith("Cookie", "B");
-
-        expect(mock_URLSearchParams_append).not.toHaveBeenCalled();
         expect(requestMock.route).not.toHaveBeenCalled();
     });
 
@@ -80,6 +61,7 @@ describe('assign a new user to a group for A/B testing ', () => {
         mock_Cookies_get.mockReturnValue("B");        
         let responseMock = new Response();
         mock_SetCookie_toHeader.mockReturnValue("B");
+
         onClientResponse(requestMock, responseMock);
         expect(mock_Cookies_get).toHaveBeenCalledTimes(1);
         expect(mock_Cookies_get).toHaveBeenCalledWith('testGroup');
