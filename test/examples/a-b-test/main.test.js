@@ -1,7 +1,7 @@
 import {mock_Cookies_get, mock_Cookies_add, mock_Cookies_delete, mock_SetCookie_toHeader, mock_Cookies_toHeader} from "../../../__mocks__/cookies";
 import {onClientRequest, onClientResponse} from "../../../src/examples/a-b-test/main";
-import Request from "../../../__mocks__/object/request";
-import Response from "../../../__mocks__/object/response";
+import Request from "../../../__mocks__/request";
+import Response from "../../../__mocks__/response";
 
 describe('assign a new user to a group for A/B testing ', () => {
 

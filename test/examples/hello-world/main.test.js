@@ -1,6 +1,6 @@
 import {onClientRequest, onClientResponse} from "../../../src/examples/hello-world/main";
-import Request from "../../../__mocks__/object/request";
-import Response from "../../../__mocks__/object/response";
+import Request from "../../../__mocks__/request";
+import Response from "../../../__mocks__/response";
 
 describe('EdgeWorker that generates a simple html page at the Edge and adds a response header', () => {
 

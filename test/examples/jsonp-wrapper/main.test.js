@@ -1,7 +1,7 @@
 import {httpRequest, HttpResponse} from "../../../__mocks__/http-request";
 import {createResponse} from "../../../__mocks__/create-response";
 import {responseProvider} from "../../../src/examples/jsonp-wrapper/main";
-import Request from "../../../__mocks__/object/request";
+import Request from "../../../__mocks__/request";
 import {TransformStream} from "../../../__mocks__/streams";
 
 

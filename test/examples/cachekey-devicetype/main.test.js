@@ -1,5 +1,5 @@
 import * as edgeworker from "../../../src/examples/cachekey-devicetype/main.js"
-import Request from "../../../__mocks__/object/request.js";
+import Request from "../../../__mocks__/request.js";
 
 describe('Include devcie type in cachekey', () => {
 

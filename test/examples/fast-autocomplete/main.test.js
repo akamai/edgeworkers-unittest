@@ -1,5 +1,5 @@
 import {onClientRequest} from "../../../src/examples/fast-autocomplete/main";
-import Request from "../../../__mocks__/object/request";
+import Request from "../../../__mocks__/request";
 
 describe('EdgeWorker serves responses for popular search terms at the Edge', () => {
 

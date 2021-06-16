@@ -1,5 +1,5 @@
 import * as edgeworker from "../../../src/examples/redirect-geo/main.js";
-import Request from "../../../__mocks__/object/request.js";
+import Request from "../../../__mocks__/request.js";
 
 test("onClientRequest calling respondWith", () => {
     let requestMock = new Request();

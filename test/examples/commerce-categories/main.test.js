@@ -1,5 +1,5 @@
 import {onClientRequest} from "../../../src/examples/commerce-categories/main";
-import Request from "../../../__mocks__/object/request";
+import Request from "../../../__mocks__/request";
 
 describe('Reply to Product Category API call directly from Edge server', () => {
 
