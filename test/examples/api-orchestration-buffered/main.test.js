@@ -1,7 +1,7 @@
 import {httpRequest, HttpResponse, mock_HttpResponse_json} from "../../../__mocks__/http-request";
 import {createResponse} from "../../../__mocks__/create-response";
 import {responseProvider} from "../../../src/examples/api-orchestration-buffered/main";
-import Request from "../../../__mocks__/object/request";
+import Request from "../../../__mocks__/request";
 
 describe('Combine 3 api endpoints returning JSON into a single JSON response', () => {
 
