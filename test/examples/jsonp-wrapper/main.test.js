@@ -20,8 +20,9 @@ describe('wrap JSON response with dynamic unique callback function leveraging Re
 
         const responsePromise = responseProvider(requestMock);
         expect(TransformStream).toHaveBeenCalledTimes(1);
-        expect(httpRequest).toHaveBeenCalledWith("https://www.example.com/helloworld?param1=value1", { 'Content-Type': ['application/json'] });
+        expect(httpRequest).toHaveBeenCalledWith("https://www.example.com/helloworld?param1=value1", { 'headers': {'Accept': 'application/json'} });
         responsePromise.then( (response) => {
+            expect(createResponse).toHaveBeenCalledWith(200, {}, mockHttpResponse.body);
             expect(response).toEqual({"status":200, "headers":{}, "body":{}});
         }).catch((error)=>console.log(error));
                

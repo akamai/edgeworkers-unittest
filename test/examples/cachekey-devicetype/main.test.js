@@ -1,5 +1,5 @@
-import * as edgeworker from "../../../src/examples/cachekey-devicetype/main.js"
-import Request from "../../../__mocks__/request.js";
+import {onClientRequest} from "../../../src/examples/cachekey-devicetype/main"
+import Request from "../../../__mocks__/request";
 
 describe('Include devcie type in cachekey', () => {
 
@@ -10,7 +10,7 @@ describe('Include devcie type in cachekey', () => {
     test("onClientRequest should set variable PMUSER_DEVICETYPE to Mobile", () => {
         let requestMock = new Request();
         requestMock.device.isMobile = true;
-        edgeworker.onClientRequest(requestMock);
+        onClientRequest(requestMock);
         expect(requestMock.setVariable).toHaveBeenCalled();
         expect(requestMock.setVariable).toHaveBeenCalledTimes(2);
         expect(requestMock.setVariable).toHaveBeenCalledWith('PMUSER_DEVICETYPE', 'Mobile');
@@ -20,7 +20,7 @@ describe('Include devcie type in cachekey', () => {
     test("onClientRequest should set variable PMUSER_DEVICETYPE to Tablet", () => {
         let requestMock = new Request();
         requestMock.device.isTablet = true;
-        edgeworker.onClientRequest(requestMock);
+        onClientRequest(requestMock);
         expect(requestMock.setVariable).toHaveBeenCalled();
         expect(requestMock.setVariable).toHaveBeenCalledTimes(2);
         expect(requestMock.setVariable).toHaveBeenCalledWith('PMUSER_DEVICETYPE', 'Tablet');
@@ -29,7 +29,7 @@ describe('Include devcie type in cachekey', () => {
 
     test("onClientRequest should set variable PMUSER_DEVICETYPE to Desktop", () => {
         let requestMock = new Request();
-        edgeworker.onClientRequest(requestMock);
+        onClientRequest(requestMock);
         expect(requestMock.setVariable).toHaveBeenCalled();
         expect(requestMock.setVariable).toHaveBeenCalledTimes(1);
         expect(requestMock.setVariable).toHaveBeenCalledWith('PMUSER_DEVICETYPE', 'Desktop');
