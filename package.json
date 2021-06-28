@@ -1,6 +1,6 @@
 {
   "name": "edgeworkers-jest-mocks",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "edgeworkers jest mocks",
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.14.5",
@@ -12,18 +12,14 @@
     "eslint-config-prettier": "^6.6.0",
     "eslint-config-xo": "^0.27.2",
     "eslint-plugin-prettier": "^3.1.1",
-    "i": "^0.3.6",
+    "md5": "^2.3.0",
     "jest": "^24.8.0",
-    "npm": "^7.19.0",
     "prettier": "^1.19.1",
     "ts-jest": "^27.0.3",
     "typescript": "^4.3.4"
   },
   "jest": {
-    "testEnvironment": "node",
-    "transform": {
-      "^.+\\.[t|j]sx?$": "babel-jest"
-    }
+    "testEnvironment": "node"
   },
   "eslintConfig": {
     "extends": [
@@ -45,8 +41,5 @@
   "scripts": {
     "test": "jest"
   },
-  "private": false,
-  "dependencies": {
-    "@babel/runtime": "^7.14.6"
-  }
+  "private": false
 }
