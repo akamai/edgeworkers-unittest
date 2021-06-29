@@ -1,15 +1,22 @@
 {
-  "name": "unit-tests",
-  "version": "0.0.0",
-  "description": "things",
+  "name": "edgeworkers-jest-mocks",
+  "version": "1.0.4",
+  "description": "edgeworkers jest mocks",
   "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/preset-typescript": "^7.14.5",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^27.0.5",
     "eslint": "^6.6.0",
     "eslint-config-prettier": "^6.6.0",
     "eslint-config-xo": "^0.27.2",
     "eslint-plugin-prettier": "^3.1.1",
+    "md5": "^2.3.0",
     "jest": "^24.8.0",
-    "jest-esnext": "^0.0.4",
-    "prettier": "^1.19.1"
+    "prettier": "^1.19.1",
+    "ts-jest": "^27.0.3",
+    "typescript": "^4.3.4"
   },
   "jest": {
     "testEnvironment": "node"
@@ -32,8 +39,7 @@
     ]
   },
   "scripts": {
-    
     "test": "jest"
   },
-  "private": true
+  "private": false
 }
