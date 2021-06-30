@@ -80,7 +80,7 @@ After importing an edgeworker or its functions from the main.js file, you can wr
 
 Here is a quick example of a test written in Jest against an EdgeWorker found in src/main.js:
 
-```
+```js
 import * as edgeworker from "../src/main.js";
 import Request from 'request';
 
