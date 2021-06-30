@@ -1,6 +1,6 @@
 import {onClientRequest} from "../../../src/examples/redirect-unauthenticated/main";
-import Request from "../../../__mocks__/request";
-import {Cookies, mock_Cookies_get} from "../../../__mocks__/cookies";
+import Request from "request";
+import {Cookies, mock_Cookies_get} from "cookies";
 
 describe('Redirect Unauthenticated Users to a Sign-In Page', () => {
 

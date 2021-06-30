@@ -1,8 +1,8 @@
-import {httpRequest, HttpResponse, mock_HttpResponse_getHeaders} from "../../../__mocks__/http-request";
-import {createResponse} from "../../../__mocks__/create-response";
+import {httpRequest, HttpResponse, mock_HttpResponse_getHeaders} from "http-request";
+import {createResponse} from "create-response";
 import {responseProvider} from "../../../src/examples/find-replace-stream/main";
-import Request, {mockGetVariable} from "../../../__mocks__/request";
-import {TextDecoderStream, TextEncoderStream} from "../../../__mocks__/text-encode-transform";
+import Request, {mockGetVariable} from "request";
+import {TextDecoderStream, TextEncoderStream} from "text-encode-transform";
 
 
 describe('Modify an HTML streamed response by replacing text string', () => {

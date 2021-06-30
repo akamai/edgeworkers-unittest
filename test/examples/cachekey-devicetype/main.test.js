@@ -1,5 +1,5 @@
 import {onClientRequest} from "../../../src/examples/cachekey-devicetype/main"
-import Request from "../../../__mocks__/request";
+import Request from "request";
 
 describe('Include devcie type in cachekey', () => {
 

@@ -1,6 +1,6 @@
 import onOriginResponse from "../../../src/examples/origin-overload/main";
-import Request from "../../../__mocks__/request";
-import Response from "../../../__mocks__/response";
+import Request from "request";
+import Response from "response";
 
 describe('onOriginResponse: This event happens as the origin response is created.', () => {
 

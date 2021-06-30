@@ -1,5 +1,5 @@
 import onClientRequest from "../../../src/examples/traffic-allow-list/main";
-import Request from "../../../__mocks__/request";
+import Request from "request";
 
 describe('onClientRequest should modify allow or deny message depending on country of end user', () => {
 

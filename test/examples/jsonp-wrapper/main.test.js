@@ -1,8 +1,8 @@
-import {httpRequest, HttpResponse} from "../../../__mocks__/http-request";
-import {createResponse} from "../../../__mocks__/create-response";
+import {httpRequest, HttpResponse} from "http-request";
+import {createResponse} from "create-response";
 import {responseProvider} from "../../../src/examples/jsonp-wrapper/main";
-import Request from "../../../__mocks__/request";
-import {TransformStream} from "../../../__mocks__/streams";
+import Request from "request";
+import {TransformStream} from "streams";
 
 
 describe('wrap JSON response with dynamic unique callback function leveraging Response Provider and Stream API ', () => {

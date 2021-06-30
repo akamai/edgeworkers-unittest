@@ -1,5 +1,5 @@
 import {onClientRequest} from "../../../src/examples/redirect-geo/main";
-import Request from "../../../__mocks__/request.js";
+import Request from "request.js";
 
 test("onClientRequest calling respondWith", () => {
     let requestMock = new Request();

@@ -1,5 +1,5 @@
 import {onClientRequest} from "../../../src/examples/microservice-geolocation/main";
-import Request from "../../../__mocks__/request";
+import Request from "request";
 
 describe('Respond with JSON formatted geographical location information', () => {
 
