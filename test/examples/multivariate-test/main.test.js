@@ -1,8 +1,7 @@
 import {onClientRequest, onClientResponse} from "../../../src/examples/multivariate-test/main";
-import Request from "../../../__mocks__/request";
-import Response from "../../../__mocks__/response";
-import {SetCookie, mock_Cookies_get, mock_Cookies_add, mock_Cookies_delete, mock_SetCookie_toHeader, mock_Cookies_toHeader} from "../../../__mocks__/cookies";
-
+import Request from "request";
+import Response from "response";
+import {SetCookie, mock_Cookies_get, mock_Cookies_add, mock_Cookies_delete, mock_SetCookie_toHeader, mock_Cookies_toHeader} from "cookies";
 
 describe('multivariate testing: assign new users to an A/B testing group', () => {
 

@@ -1,5 +1,5 @@
 import {onClientRequest} from "../../../src/examples/conference-details/main";
-import Request from "../../../__mocks__/request";
+import Request from "request";
 
 describe('Conference Attendance Code API call that returns the meeting details of a conference as HTML if the user provides the correct code', () => {
 

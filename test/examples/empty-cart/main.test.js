@@ -1,6 +1,6 @@
-import {mock_Cookies_get} from "../../../__mocks__/cookies";
+import {mock_Cookies_get} from "cookies";
 import {onClientRequest} from "../../../src/examples/empty-cart/main";
-import Request from "../../../__mocks__/request";
+import Request from "request";
 
 describe('EdgeWorker that will respond with an empty JSON for an empty shopping cart', () => {
 

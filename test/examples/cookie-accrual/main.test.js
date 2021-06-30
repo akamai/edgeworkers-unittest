@@ -1,7 +1,7 @@
 import {onClientResponse} from "../../../src/examples/cookie-accrual/main";
-import Request from "../../../__mocks__/request";
-import Response from "../../../__mocks__/response";
-import {SetCookie, mock_Cookies_get, mock_SetCookie_toHeader} from "../../../__mocks__/cookies";
+import Request from "request";
+import Response from "response";
+import {SetCookie, mock_Cookies_get, mock_SetCookie_toHeader} from "cookies";
 
 
 describe('Accrue values in a cookie as a visitor traverses a site, and trigger a promotional cookie.', () => {

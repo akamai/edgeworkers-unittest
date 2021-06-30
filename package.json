@@ -41,5 +41,11 @@
   "scripts": {
     "test": "jest"
   },
+  "files": [
+    "__mocks__",
+    "babel.config.json",
+    "jest.config.js",
+    "package.*"
+  ],
   "private": false
 }

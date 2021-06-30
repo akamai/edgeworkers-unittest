@@ -1,6 +1,6 @@
 import {onClientRequest,  onClientResponse} from "../../../src/examples/remove-cookies-static-files/main";
-import Request from "../../../__mocks__/request";
-import Response from "../../../__mocks__/response";
+import Request from "request";
+import Response from "response";
 
 describe('Remove incoming Cookies and Remove Set-Cookie for outgoing for Static Files', () => {
 

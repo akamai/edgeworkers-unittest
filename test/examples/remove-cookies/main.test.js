@@ -1,6 +1,6 @@
 import {onOriginRequest} from "../../../src/examples/remove-cookies/main";
-import Request from "../../../__mocks__/request";
-import {Cookies, mock_Cookies_names, mock_Cookies_delete} from "../../../__mocks__/cookies";
+import Request from "request";
+import {Cookies, mock_Cookies_names, mock_Cookies_delete} from "cookies";
 
 describe('Remove unwanted Cookies from being sent to the Origin', () => {
 
