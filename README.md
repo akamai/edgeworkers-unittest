@@ -122,4 +122,4 @@ This will run all tests in the `test` directory following the `Jest` conventions
 
 ## Examples
 
-Example EdgeWorkers and tests to go along with them can be found [in the Akamai EdgeWorkers Exmaples](https://github.com/akamai/edgeworkers-examples) repo.
+Example EdgeWorkers can be found [in the Akamai EdgeWorkers Exmaples](https://github.com/akamai/edgeworkers-examples) repo. Example tests will eventually move there but are currently available [under the test/examples folder](https://github.com/bmatthew/edgeworkers-unittest/tree/main/test/examples).
