@@ -79,7 +79,7 @@ Here is a quick example of a test written in Jest against an EdgeWorker found in
 
 ```
 import * as edgeworker from "../src/main.js";
-import Request from 'request.js';
+import Request from 'request';
 
 describe('Simple Example', () => {
 
