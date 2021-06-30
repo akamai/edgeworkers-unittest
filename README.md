@@ -107,7 +107,7 @@ describe('Simple Example', () => {
 }); 
 ```
 
-More example tests can be found [in the Akamai EdgeWorkers Exmaples](https://github.com/akamai/edgeworkers-examples) repo. If needed, a good overview of using Jest can be found [here](https://flaviocopes.com/jest/).
+More example tests can be found [in the Akamai EdgeWorkers Exmaples](https://github.com/akamai/edgeworkers-examples) repo. If needed, a [good overview of using Jest is available from Flaviocopes](https://flaviocopes.com/jest/).
 
 ## Running Tests
 
