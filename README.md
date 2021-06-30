@@ -74,6 +74,37 @@ As mentioned above it is useful to have babel installed to fill in for the newer
 }
 ```
 
+## Writing a Test
+Here is a quick example of a test written in Jest against an EdgeWorker found in src/main.js:
+
+```
+import * as edgeworker from "../src/main.js";
+import Request from 'request.js';
+
+describe('Simple Example', () => {
+
+    beforeEach(() => {
+        jest.clearAllMocks();
+    });
+  
+    test("functional test against onClientRequest", async () => {
+        let requestMock = new Request();
+        onClientRequest(requestMock);
+
+        expect(requestMock.respondWith).toHaveBeenCalledTimes(1);
+        expect(requestMock.respondWith).toHaveBeenCalledWith(200, {}, "<html><body><h1>Test Page</h1></body></html>");
+    });
+
+    test("unit test an edgeworker function", async () => {
+        let result = edgeworker.someFunction(42);
+
+        expect(result != null);
+    });
+
+}); 
+```
+
+More example tests can be found [in the Akamai EdgeWorkers Exmaples](https://github.com/akamai/edgeworkers-examples) repo
 
 ## Running Tests
 
