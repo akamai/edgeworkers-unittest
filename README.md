@@ -8,6 +8,7 @@ This isn't a perfect solution, as:
 * Mocks provided here will not perfectly replicate the API.
 * Tests are executed in Node; while both Node and EdgeWorkers run on top of V8, some features are explicitly disabled for EdgeWorkers, there are execution limits for EdgeWorkers (time and memory), and developers need to be careful not to pull in Node APIs.
 
+[Additional documentation for EdgeWorkers](https://techdocs.akamai.com/edgeworkers/docs) can be found in Akamai TechDocs.
 
 ## Structure
 
@@ -75,6 +76,8 @@ As mentioned above it is useful to have babel installed to fill in for the newer
 ```
 
 ## Writing a Test
+After importing an edgeworker or its functions from the main.js file, you can write any kind of tests you need. Tests written against [EdgeWorker event handlers](https://techdocs.akamai.com/edgeworkers/docs/event-handler-functions) require creating a Request or Response mock and then calling the event handler function with that mock.
+
 Here is a quick example of a test written in Jest against an EdgeWorker found in src/main.js:
 
 ```
@@ -89,7 +92,7 @@ describe('Simple Example', () => {
   
     test("functional test against onClientRequest", async () => {
         let requestMock = new Request();
-        onClientRequest(requestMock);
+        edgeworker.onClientRequest(requestMock);
 
         expect(requestMock.respondWith).toHaveBeenCalledTimes(1);
         expect(requestMock.respondWith).toHaveBeenCalledWith(200, {}, "<html><body><h1>Test Page</h1></body></html>");
