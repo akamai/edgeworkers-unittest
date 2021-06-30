@@ -17,7 +17,53 @@ The EdgeWorker has the following structure:
 * `test` - unit tests
 
 
-### 
+## Setup
+
+Here we are going to cover getting the node modules needed installed, as well as config file setup.
+
+### Install node modules
+The mocks for this project are publishes as the node module `edgeworkers-jest-mocks`. You can install that by running the following in your project directory:
+`npm install edgeworkers-jest-mocks`
+
+It's also very useful to have babel installed, as Akamai EdgeWorkers support a newer version of EcmaScript than Node.js normally does:
+`npm install @babel/runtime`
+
+Finally install the following as dev dependencies:
+`npm install --save-dev jest babel-jest babel-core @babel/preset-env @babel/plugin-transform-runtime`
+
+
+### package.json setup
+Make sure you have the following configured in the package.json file:
+* Set the test script to jest: 
+  ```
+  "scripts": {
+    "test": "jest"
+  },
+  ```
+* Configure Jest so that the EdgeWorkers API mocks are easier to import
+  ```
+  "jest": {
+    "testEnvironment": "node",
+    "transformIgnorePatterns": [
+      "node_modules/(?!edgeworkers-jest-mocks/__mocks__)"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "node_modules/edgeworkers-jest-mocks/__mocks__"
+    ]
+  }
+  ```
+
+## babel.config.json setup
+As mentioned above it is useful to have babel installed to fill in for the newer version of EcmaScript used by Akamai EdgeWorkers. To configure this correctly, add the following as a `babel.config.json` file:
+```
+{
+  "presets": ["@babel/preset-env"],
+  "plugins": [
+    ["@babel/transform-runtime"]
+  ]
+}
+```
 
 
 ## Running Tests
