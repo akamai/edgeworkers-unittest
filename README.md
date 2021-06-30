@@ -107,7 +107,7 @@ describe('Simple Example', () => {
 }); 
 ```
 
-More example tests can be found [in the Akamai EdgeWorkers Exmaples](https://github.com/akamai/edgeworkers-examples) repo
+More example tests can be found [in the Akamai EdgeWorkers Exmaples](https://github.com/akamai/edgeworkers-examples) repo. If needed, a good overview of using Jest can be found [here](https://flaviocopes.com/jest/).
 
 ## Running Tests
 
@@ -119,8 +119,6 @@ npm test
 ```
 
 This will run all tests in the `test` directory following the `Jest` conventions.  If you want more tests, name them in the pattern *.test.js.
-
-A good overview of using Jest can be found [here](https://flaviocopes.com/jest/).
 
 ## Examples
 
