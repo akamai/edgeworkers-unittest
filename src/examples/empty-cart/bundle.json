@@ -1,4 +1,0 @@
-{
-    "edgeworker-version": "0.1",
-    "description" : "Response with an empty cart information json if cookie doesn't indicate something in the cart."
-}
