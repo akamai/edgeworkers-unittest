@@ -1,4 +1,4 @@
-import {onOriginRequest} from "../../../src/examples/remove-cookies/main";
+import {onOriginRequest} from "work-with-cookies/remove-cookies/main";
 import Request from "request";
 import {Cookies, mock_Cookies_names, mock_Cookies_delete} from "cookies";
 

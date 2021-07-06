@@ -1,4 +1,4 @@
-import {onClientRequest, onClientResponse} from "../../../src/examples/typescript-module-bundle/src/main";
+import {onClientRequest, onClientResponse} from "bundle-third-party-modules/typescript-module-bundle/src/main";
 import Request from "../../../__mocks__/request";
 import Response from "../../../__mocks__/response";
 

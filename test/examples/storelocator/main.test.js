@@ -15,7 +15,7 @@ jest.mock('kdbush', () => {
     });
   },{virtual: true});
   
-import {onClientRequest} from "../../../src/examples/storelocator/main";
+import {onClientRequest} from "bundle-third-party-modules/storelocator/main";
 import Request from "request";
 import geokdbush from 'geokdbush';
 

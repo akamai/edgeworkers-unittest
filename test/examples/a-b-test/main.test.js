@@ -1,5 +1,5 @@
 import {mock_Cookies_get, mock_Cookies_add, mock_Cookies_delete, mock_SetCookie_toHeader, mock_Cookies_toHeader} from "cookies";
-import {onClientRequest, onClientResponse} from "../../../src/examples/a-b-test/main";
+import {onClientRequest, onClientResponse} from "control-origin-routes/a-b-test/main";
 import Request from "request";
 import Response from "response";
 

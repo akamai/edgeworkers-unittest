@@ -1,4 +1,4 @@
-import {onClientResponse} from "../../../src/examples/cookie-geolocation/main";
+import {onClientResponse} from "work-with-cookies/cookie-geolocation/main";
 import Request from "request";
 import Response from "response";
 import {SetCookie, mock_Cookies_get, mock_SetCookie_toHeader, mock_Cookies_add} from "cookies";

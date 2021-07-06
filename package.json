@@ -13,13 +13,18 @@
     "eslint-config-xo": "^0.27.2",
     "eslint-plugin-prettier": "^3.1.1",
     "md5": "^2.3.0",
-    "jest": "^24.8.0",
+    "jest": "^24.9.0",
     "prettier": "^1.19.1",
     "ts-jest": "^27.0.3",
     "typescript": "^4.3.4"
   },
   "jest": {
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "moduleDirectories": [
+      "node_modules",
+      "./",
+      "../../../src/edgeworkers/examples"
+    ]
   },
   "eslintConfig": {
     "extends": [

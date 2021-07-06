@@ -1,4 +1,4 @@
-import {onClientRequest, onClientResponse} from "../../../src/examples/hello-world/main";
+import {onClientRequest, onClientResponse} from "getting-started/hello-world/main";
 import Request from "request";
 import Response from "response";
 

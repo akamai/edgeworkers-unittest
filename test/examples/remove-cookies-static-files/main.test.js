@@ -1,4 +1,4 @@
-import {onClientRequest,  onClientResponse} from "../../../src/examples/remove-cookies-static-files/main";
+import {onClientRequest,  onClientResponse} from "work-with-cookies/remove-cookies-static-files/main";
 import Request from "request";
 import Response from "response";
 

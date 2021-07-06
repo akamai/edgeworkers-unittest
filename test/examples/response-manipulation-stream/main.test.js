@@ -1,6 +1,6 @@
 import {httpRequest, HttpResponse, mock_HttpResponse_json} from "http-request";
 import {createResponse} from "create-response";
-import {responseProvider} from "../../../src/examples/response-manipulation-stream/main";
+import {responseProvider} from "respond-from-edgeworkers/responseprovider/response-manipulation-stream/main";
 import Request from "request";
 import {TextDecoderStream, TextEncoderStream} from "text-encode-transform";
 
