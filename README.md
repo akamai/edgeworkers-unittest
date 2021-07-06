@@ -107,7 +107,7 @@ describe('Simple Example', () => {
 }); 
 ```
 
-More example tests are available [under the test/examples folder](https://github.com/bmatthew/edgeworkers-unittest/tree/main/test/examples). If needed, a [good overview of using Jest is available from Flaviocopes](https://flaviocopes.com/jest/).
+More example tests are available [under the test/examples folder](https://github.com/akamai/edgeworkers-unittest/tree/main/test/examples). If needed, a [good overview of using Jest is available from Flaviocopes](https://flaviocopes.com/jest/).
 
 ## Running Tests
 
@@ -122,4 +122,4 @@ This will run all tests in the `test` directory following the `Jest` conventions
 
 ## Examples
 
-Example EdgeWorkers can be found [in the Akamai EdgeWorkers Examples](https://github.com/akamai/edgeworkers-examples) repo. Example tests will eventually move there but are currently available [under the test/examples folder](https://github.com/bmatthew/edgeworkers-unittest/tree/main/test/examples).
+Example EdgeWorkers can be found [in the Akamai EdgeWorkers Examples](https://github.com/akamai/edgeworkers-examples) repo. Example tests written against these EdgeWorkers are available [under the test/examples folder](https://github.com/akamai/edgeworkers-unittest/tree/main/test/examples).
