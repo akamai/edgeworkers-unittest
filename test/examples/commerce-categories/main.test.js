@@ -1,4 +1,4 @@
-import {onClientRequest} from "../../../src/examples/commerce-categories/main";
+import {onClientRequest} from "respond-from-edgeworkers/respondwith/commerce-categories/main";
 import Request from "request";
 
 describe('Reply to Product Category API call directly from Edge server', () => {

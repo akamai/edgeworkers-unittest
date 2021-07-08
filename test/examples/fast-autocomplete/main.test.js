@@ -1,4 +1,4 @@
-import {onClientRequest} from "../../../src/examples/fast-autocomplete/main";
+import {onClientRequest} from "respond-from-edgeworkers/respondwith/fast-autocomplete/main";
 import Request from "request";
 
 describe('EdgeWorker serves responses for popular search terms at the Edge', () => {

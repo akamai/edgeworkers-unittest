@@ -1,4 +1,4 @@
-import onClientRequest from "../../../src/examples/forward-devicetype/main";
+import {onClientRequest} from "work-with-request-properties/forward-devicetype/main";
 import Request from "request";
 
 describe('onClientRequest should modify forward path based on device type to point to device specific content', () => {

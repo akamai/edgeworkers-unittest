@@ -1,4 +1,4 @@
-import onOriginResponse from "../../../src/examples/origin-overload/main";
+import {onOriginResponse} from "work-with-origin-issues/origin-overload/main";
 import Request from "request";
 import Response from "response";
 

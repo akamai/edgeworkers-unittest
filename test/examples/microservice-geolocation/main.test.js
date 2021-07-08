@@ -1,4 +1,4 @@
-import {onClientRequest} from "../../../src/examples/microservice-geolocation/main";
+import {onClientRequest} from "respond-from-edgeworkers/respondwith/microservice-geolocation/main";
 import Request from "request";
 
 describe('Respond with JSON formatted geographical location information', () => {

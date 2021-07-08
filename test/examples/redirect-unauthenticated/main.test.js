@@ -1,4 +1,4 @@
-import {onClientRequest} from "../../../src/examples/redirect-unauthenticated/main";
+import {onClientRequest} from "work-with-redirects/redirect-unauthenticated/main";
 import Request from "request";
 import {Cookies, mock_Cookies_get} from "cookies";
 

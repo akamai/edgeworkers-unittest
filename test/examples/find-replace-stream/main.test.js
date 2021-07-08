@@ -1,6 +1,6 @@
 import {httpRequest, HttpResponse, mock_HttpResponse_getHeaders} from "http-request";
 import {createResponse} from "create-response";
-import {responseProvider} from "../../../src/examples/find-replace-stream/main";
+import {responseProvider} from "../../../src/edgeworkers/libraries/find-replace-stream/main";
 import Request, {mockGetVariable} from "request";
 import {TextDecoderStream, TextEncoderStream} from "text-encode-transform";
 

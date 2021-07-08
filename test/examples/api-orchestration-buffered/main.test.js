@@ -1,6 +1,6 @@
 import {httpRequest, HttpResponse, mock_HttpResponse_json} from "http-request";
 import {createResponse} from "create-response";
-import {responseProvider} from "../../../src/examples/api-orchestration-buffered/main";
+import {responseProvider} from "respond-from-edgeworkers/responseprovider/api-orchestration-buffered/main";
 import Request from "request";
 
 describe('Combine 3 api endpoints returning JSON into a single JSON response', () => {
