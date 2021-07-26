@@ -123,3 +123,24 @@ This will run all tests in the `test` directory following the `Jest` conventions
 ## Examples
 
 Example EdgeWorkers can be found [in the Akamai EdgeWorkers Examples](https://github.com/akamai/edgeworkers-examples) repo. Example tests written against these EdgeWorkers are available [under the test/examples folder](https://github.com/akamai/edgeworkers-unittest/tree/main/test/examples).
+
+## Contributing 
+
+When contributing to the repository please describe the change or examples in detail in the pull request.
+
+### contributing examples
+- Create a pull request.
+- Once the pull request is created, If the contributing user has not previously signed a Contributor License Agreement (CLA), they must complete the CLA signing steps as indicated in the pull request. The CLA signature will be stored in an Akamai private repository in Github.
+- A code review will be performed by multiple Akamai members of the edgeworkers-unittest repository. The code review must receive at least 2 approvals.
+- The pull request will be merged once all of the above criteria have been met.
+
+## Resources
+For more information on EdgeWorkers and EdgeKV, refer to the following resources:
+* [EdgeWorkers Developer Page](https://developer.akamai.com/edgeworkers)
+* [EdgeWorkers User Guide](https://learn.akamai.com/en-us/webhelp/edgeworkers/edgeworkers-user-guide/GUID-4CC14D7E-D92D-4F2D-9292-17F8BE6E2DAE.html)
+* [EdgeWorkers API Guide](https://developer.akamai.com/api/web_performance/edgeworkers/v1.html)
+* [Akamai CLI for EdgeWorkers](https://developer.akamai.com/legacy/cli/packages/edgeworkers.html)
+* [EdgeKV Getting Started Guide](https://learn.akamai.com/en-us/webhelp/edgeworkers/edgekv-getting-started-guide/)
+
+## Reporting Issues
+If you experience any issues with these code samples, please raise a [GitHub issue](https://github.com/akamai/edgeworkers-examples/issues). Or create a pull request with fixes, suggestions, or your own contributed example.
