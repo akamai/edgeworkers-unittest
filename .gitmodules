@@ -1,3 +1,6 @@
-[submodule "src"]
-	path = src
-	url = https://github.com/akamai/edgeworkers-examples
+[submodule "jest/src"]
+	path = jest/src
+	url = https://github.com/akamai/edgeworkers-examples/
+[submodule "mocha/src"]
+	path = mocha/src
+	url = https://github.com/akamai/edgeworkers-examples/
