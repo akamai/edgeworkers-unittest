@@ -26,19 +26,7 @@ Here we are going to cover getting the node modules needed installed, as well as
 The mocks for this project are published as the node module [edgeworkers-jest-mocks](https://www.npmjs.com/package/edgeworkers-jest-mocks). You can install that by running the following in your project directory:
 
 ```
-npm install edgeworkers-jest-mocks
-```
-
-It's also very useful to have babel installed, as Akamai EdgeWorkers support a newer version of EcmaScript than Node.js normally does:
-
-```
-npm install @babel/runtime
-```
-
-Finally install the following as dev dependencies:
-
-```
-npm install --save-dev jest babel-jest babel-core @babel/preset-env @babel/plugin-transform-runtime
+npm install --save-dev edgeworkers-jest-mocks
 ```
 
 
