@@ -20,24 +20,37 @@ The EdgeWorker has the following structure:
 
 ## Setup
 
-Here we are going to cover getting the node modules needed installed, as well as config file setup.
+### Step 1 : 
 
-### Install node modules
+Start a new project and execute the command below :
+
+```
+npm init
+```
+
+### Step 2 : 
+
+Here we are going to cover getting the node modules needed to be installed, as well as config file setup.
+
+#### Install node modules
 The mocks for this project are published as the node module [edgeworkers-jest-mocks](https://www.npmjs.com/package/edgeworkers-jest-mocks). You can install that by running the following in your project directory:
 
 ```
 npm install --save-dev edgeworkers-jest-mocks
 ```
 
+### Step 3 : 
 
-### package.json setup
+#### setup package.json
 Make sure you have the following configured in the package.json file:
+
 * Set the test script to jest: 
   ```
   "scripts": {
     "test": "jest"
   },
   ```
+  
 * Configure Jest so that the EdgeWorkers API mocks are easier to import
   ```
   "jest": {
@@ -51,9 +64,12 @@ Make sure you have the following configured in the package.json file:
     ]
   }
   ```
+  
+### Step 4 :
 
-### babel.config.json setup
-As mentioned above it is useful to have babel installed to fill in for the newer version of EcmaScript used by Akamai EdgeWorkers. To configure this correctly, add the following as a `babel.config.json` file:
+#### setup babel.config.json
+
+As mentioned above it is useful to have babel installed to fill in for the newer version of EcmaScript used by Akamai EdgeWorkers. To configure this correctly, add the following as a `babel.config.json` file (Create a json file and name it as `babel.config.json` if it does not exists):
 ```
 {
   "presets": ["@babel/preset-env"],
@@ -63,7 +79,9 @@ As mentioned above it is useful to have babel installed to fill in for the newer
 }
 ```
 
-## Writing a Test
+### Step 5 :
+
+#### Writing a Test
 After importing an edgeworker or its functions from the main.js file, you can write any kind of tests you need. Tests written against [EdgeWorker event handlers](https://techdocs.akamai.com/edgeworkers/docs/event-handler-functions) require creating a Request or Response mock and then calling the event handler function with that mock.
 
 Here is a quick example of a test written in Jest against an EdgeWorker found in src/main.js:
@@ -97,7 +115,9 @@ describe('Simple Example', () => {
 
 More example tests are available [under the test/examples folder](https://github.com/akamai/edgeworkers-unittest/tree/main/test/examples). If needed, a [good overview of using Jest is available from Flaviocopes](https://flaviocopes.com/jest/).
 
-## Running Tests
+### Step 6 :
+
+#### Running Tests
 
 Testing is provided via the [Jest](https://jestjs.io/) framework.
 To run you unit tests, execute the following command from the command line:
