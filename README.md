@@ -69,7 +69,7 @@ Make sure you have the following configured in the package.json file:
 
 #### setup babel.config.json
 
-Babel is included as a dependency of the test suite to fill in for the newer version of EcmaScript used by Akamai EdgeWorkers. To configure this correctly, add the following as a `babel.config.json` file (Create a json file and name it as `babel.config.json` if it does not exists):
+Babel is included as a dependency to fill in for the newer version of EcmaScript used by Akamai EdgeWorkers. To configure this correctly, add the following as a `babel.config.json` file (Create a json file and name it as `babel.config.json` if it does not exists):
 ```
 {
   "presets": ["@babel/preset-env"],
