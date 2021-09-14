@@ -1,7 +1,7 @@
-export const TextEncoderStream = jest.fn().mockImplementation(() => {
-    return {};
-});
+const sinon = require("sinon");
 
-export const TextDecoderStream = jest.fn().mockImplementation(() => {
-    return {};
-});
+export class TextEncoderStream {
+}
+
+export class TextDecoderStream {
+}

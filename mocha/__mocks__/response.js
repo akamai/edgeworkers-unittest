@@ -1,16 +1,12 @@
-export const mockGetHeader = jest.fn();
-export const mockSetHeader = jest.fn();
-export const mockAddHeader = jest.fn();
-export const mockRemoveHeader= jest.fn();
+const sinon = require("sinon");
 
-const Response = jest.fn().mockImplementation(() => {
-  return {
-    status: "200",
-    getHeader: mockGetHeader,
-    setHeader: mockSetHeader,
-    addHeader: mockAddHeader,
-    removeHeader: mockRemoveHeader,
-    };
-});
-
-export default Response;
+export default class Response {
+  // default to dummy data and stubs
+  constructor() {
+    this.status = "200";
+    this.getHeader = sinon.stub();
+    this.setHeader = sinon.stub();
+    this.addHeader = sinon.stub();
+    this.removeHeader = sinon.stub();
+  }
+}

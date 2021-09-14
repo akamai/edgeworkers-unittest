@@ -1,27 +1,29 @@
-import {onClientRequest, onClientResponse} from "bundle-third-party-modules/typescript-module-bundle/src/main";
+import {onClientRequest, onClientResponse} from "../../../src/edgeworkers/examples/bundle-third-party-modules/typescript-module-bundle/src/main";
 import Request from "../../../__mocks__/request";
 import Response from "../../../__mocks__/response";
 
+const sinon = require("sinon");
+const expect = require('expect.js');
+
 describe('demonstrates unit testing edgeworker written in TypeScript', () => {
 
-    beforeEach(() => {
-        jest.clearAllMocks();
+    afterEach(function () {
+        sinon.restore();
     });
     
-    test("onClientRequest should respond with Hello World", () => {
+    it("onClientRequest should respond with Hello World", () => {
         let requestMock = new Request();
         let responseMock = new Response();
         onClientRequest(requestMock, responseMock);
-        expect(requestMock.respondWith).toHaveBeenCalledTimes(1);
-        expect(requestMock.respondWith).toHaveBeenCalledWith(200, {}, "<html><body><h1>Hello World From Akamai EdgeWorkers</h1></body></html>");
+        expect(requestMock.respondWith.callCount).to.be(1);
+        expect(requestMock.respondWith.calledWith(200, {}, "<html><body><h1>Hello World From Akamai EdgeWorkers</h1></body></html>")).to.be(true);
     });
 
-    test("onClientResponse should set X-Hello-World header to a hashed value", () => {
+    it("onClientResponse should set X-Hello-World header to a hashed value", () => {
         let requestMock = new Request();
         let responseMock = new Response();
         onClientResponse(requestMock, responseMock);
-        expect(responseMock.setHeader).toHaveBeenCalledTimes(1);
-        expect(responseMock.setHeader).toHaveBeenCalledWith('X-Hello-World','5e748421a43bbfa7eaffe4f8e0be823e');
+        expect(responseMock.setHeader.calledWith('X-Hello-World','5e748421a43bbfa7eaffe4f8e0be823e')).to.be(true);
     });
 
 });

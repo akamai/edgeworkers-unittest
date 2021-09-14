@@ -1,27 +1,35 @@
-import {onOriginRequest} from "work-with-cookies/remove-cookies/main";
+import {onOriginRequest} from "../../../src/edgeworkers/examples/work-with-cookies/remove-cookies/main";
 import Request from "request";
 import {Cookies, mock_Cookies_names, mock_Cookies_delete} from "cookies";
 
+const sinon = require("sinon");
+const expect = require('expect.js');
+
 describe('Remove unwanted Cookies from being sent to the Origin', () => {
 
-    beforeEach(() => {
-        jest.clearAllMocks();
+    afterEach(() => {
+        sinon.restore();
     });
   
-    test("onClientRequest should remove all GA, doubleClick, Quant Capital, and ADDThis cookies", () => {
+    it("onClientRequest should remove all GA, doubleClick, Quant Capital, and ADDThis cookies", () => {
         let requestMock = new Request();
         mock_Cookies_names.mockReturnValue(['_ga', '__qc', 'site_cookie', 'utmctr', '__gads', '__atuv.']);
 
         onOriginRequest(requestMock);
-        expect(Cookies).toHaveBeenCalled();
-        expect(mock_Cookies_delete).toHaveBeenCalledTimes(5);
-        expect(mock_Cookies_delete).toHaveBeenCalledWith("_ga");
-        expect(mock_Cookies_delete).toHaveBeenCalledWith("__qc");
+        expect(Cookies.called).to.be(true)
+        expect((mock_Cookies_delete).callcount).to.be((mock_Cookies_delete));
+                expect(mock_Cookies_delete.calledWith("_ga")).to.be(true);
+
+                expect(mock_Cookies_delete.calledWith("__qc")).to.be(true);
+
         expect(mock_Cookies_delete).not.toHaveBeenCalledWith("site_cookie");
-        expect(mock_Cookies_delete).toHaveBeenCalledWith("utmctr");
-        expect(mock_Cookies_delete).toHaveBeenCalledWith("__gads");
-        expect(mock_Cookies_delete).toHaveBeenCalledWith("__atuv.");
-        expect(requestMock.setHeader).toHaveBeenCalled();
+                expect(mock_Cookies_delete.calledWith("utmctr")).to.be(true);
+
+                expect(mock_Cookies_delete.calledWith("__gads")).to.be(true);
+
+                expect(mock_Cookies_delete.calledWith("__atuv.")).to.be(true);
+
+        expect(requestMock.setHeader.called).to.be(true)
     });
 
 });

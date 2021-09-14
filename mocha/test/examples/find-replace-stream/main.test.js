@@ -4,14 +4,16 @@ import {responseProvider} from "../../../src/edgeworkers/libraries/find-replace-
 import Request, {mockGetVariable} from "request";
 import {TextDecoderStream, TextEncoderStream} from "text-encode-transform";
 
+const sinon = require("sinon");
+const expect = require('expect.js');
 
 describe('Modify an HTML streamed response by replacing text string', () => {
 
-    beforeEach(() => {
-        jest.clearAllMocks();
+    afterEach(() => {
+        sinon.restore();
     });
   
-    test("should remove content-encoding & content-length headers and modify HTTP response by performing a find & replace operation", () => {
+    it("should remove content-encoding & content-length headers and modify HTTP response by performing a find & replace operation", () => {
         let requestMock = new Request();
         let mockHttpResponse = new HttpResponse();
         requestMock.url = "/helloworld";
@@ -21,12 +23,14 @@ describe('Modify an HTML streamed response by replacing text string', () => {
         createResponse.mockReturnValue({"status":200, "headers":{"header3": "value3"}, "body":"modified HTTP response abc"});
 
         const responsePromise = responseProvider(requestMock);
-        expect(httpRequest).toHaveBeenCalledWith("https://www.example.com/helloworld");
+                expect(httpRequest.calledWith("https://www.example.com/helloworld")).to.be(true);
+
         responsePromise.then( (response) => {
-            expect(createResponse).toHaveBeenCalledWith(200, {"header3": "value3"}, mockHttpResponse.body);
-            expect(TextEncoderStream).toHaveBeenCalled();
+                    expect(createResponse.calledWith(200, {"header3": "value3"}, mockHttpResponse.body)).to.be(true);
+
+            expect(TextEncoderStream.called).to.be(true)
             expect(response).toEqual({"status":200, "headers":{"header3": "value3"}, "body":"modified HTTP response abc"});
-            expect(TextDecoderStream).toHaveBeenCalled();
+            expect(TextDecoderStream.called).to.be(true)
         }).catch((error)=>console.log(error));
                
     });

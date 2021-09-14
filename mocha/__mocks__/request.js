@@ -1,39 +1,29 @@
+const sinon = require("sinon");
+
 import Device from './device';
 import UserLocation from './userLocation';
 import CacheKey from './cacheKey';
 
-export const mockRespondWith = jest.fn();
-export const mockGetHeader = jest.fn();
-export const mockSetHeader = jest.fn();
-export const mockAddHeader = jest.fn();
-export const mockRemoveHeader = jest.fn();
-export const mockGetHeaders = jest.fn();
-export const mockGetVariable = jest.fn();
-export const mockSetVariable = jest.fn();
-export const mockRoute = jest.fn();
-
-const Request = jest.fn().mockImplementation(() => {
-  return {
-    host: "www.example.com",
-    method: "GET",
-    path: "/helloworld",
-    scheme: "https",
-    query: "param1=value1&param2=value2",
-    url: "/helloworld?param1=value1&param2=value2",
-    userLocation: new UserLocation(),
-    device: new Device(),
-    cpCode: 1191398,
-    cacheKey: new CacheKey(),
-    respondWith: mockRespondWith,
-    getHeader: mockGetHeader,
-    setHeader: mockSetHeader,
-    addHeader: mockAddHeader,
-    removeHeader: mockRemoveHeader,
-    getHeaders: mockGetHeaders,
-    getVariable: mockGetVariable,
-    setVariable: mockSetVariable,
-    route: mockRoute
-    };
-});
-
-export default Request;
+export default class Request {
+  constructor() {
+    this.host = "www.example.com";
+    this.method = "GET";
+    this.path = "/helloworld";
+    this.scheme = "https";
+    this.query = "param1=value1&param2=value2";
+    this.url = "/helloworld?param1=value1&param2=value2";
+    this.userLocation = new UserLocation();
+    this.device = new Device();
+    this.cpCode = 1191398;
+    this.cacheKey = new CacheKey();
+    this.respondWith = sinon.stub();
+    this.getHeader = sinon.stub();
+    this.setHeader = sinon.stub();
+    this.addHeader = sinon.stub();
+    this.removeHeader = sinon.stub();
+    this.getHeaders = sinon.stub();
+    this.getVariable = sinon.stub();
+    this.setVariable = sinon.stub();
+    this.route = sinon.stub();
+  }
+}

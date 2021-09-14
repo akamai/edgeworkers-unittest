@@ -1,33 +1,25 @@
-export const TransformStream = jest.fn().mockImplementation(() => {
-    return {};
-});
+const sinon = require("sinon");
 
-export const ByteLengthQueuingStrategy = jest.fn().mockImplementation(() => {
-    return {};
-});
+export class TransformStream {
+}
 
-export const CountQueuingStrategy = jest.fn().mockImplementation(() => {
-    return {};
-});
+export class ByteLengthQueuingStrategy {
+}
 
-// ReadableStream mock
-export const mock_ReadableStream_cancel = jest.fn();
-export const mock_ReadableStream_getReader = jest.fn();
-export const mock_ReadableStream_pipeThrough = jest.fn().mockReturnThis();
-export const mock_ReadableStream_pipeTo = jest.fn();
-export const mock_ReadableStream_tee = jest.fn();
+export class CountQueuingStrategy {
+}
 
-export const ReadableStream = jest.fn().mockImplementation(() => {
-    return {
-        locked: false,
-        cancel: mock_ReadableStream_cancel,
-        getReader: mock_ReadableStream_getReader,
-        pipeThrough: mock_ReadableStream_pipeThrough,
-        pipeTo: mock_ReadableStream_pipeTo,
-        tee: mock_ReadableStream_tee
-    };
-});
+export class ReadableStream {    
+    // default to stubbed data; can be overriden by developers
+    constructor() {
+        this.locked = false;
+        this.cancel = sinon.stub();
+        this.getReader = sinon.stub();
+        this.pipeThrough = sinon.stub();
+        this.pipeTo = sinon.stub();
+        this.tee = sinon.stub();
+    }
+}
 
-export const WritableStream = jest.fn().mockImplementation(() => {
-    return {};
-});
+export class WritableStream {
+}

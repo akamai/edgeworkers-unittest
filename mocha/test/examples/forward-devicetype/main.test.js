@@ -1,31 +1,36 @@
-import {onClientRequest} from "work-with-request-properties/forward-devicetype/main";
+import {onClientRequest} from "../../../src/edgeworkers/examples/work-with-request-properties/forward-devicetype/main";
 import Request from "request";
+
+const sinon = require("sinon");
+const expect = require('expect.js');
 
 describe('onClientRequest should modify forward path based on device type to point to device specific content', () => {
 
-    beforeEach(() => {
-        jest.clearAllMocks();
+    afterEach(() => {
+        sinon.restore();
     });
     
-    test("onClientRequest should modify forward path to /mobile if device type is mobile", () => {
+    it("onClientRequest should modify forward path to /mobile if device type is mobile", () => {
         let requestMock = new Request();
         requestMock.device.isMobile = true;
         onClientRequest(requestMock);
-        expect(requestMock.route).toHaveBeenCalled();
-        expect(requestMock.route).toHaveBeenCalledTimes(1);
-        expect(requestMock.route).toHaveBeenCalledWith({ path: '/mobile' + requestMock.path });
+        expect(requestMock.route.called).to.be(true)
+        expect((requestMock.route).callcount).to.be((requestMock.route));
+                expect(requestMock.route.calledWith({ path: '/mobile' + requestMock.path })).to.be(true);
+
     });
 
-    test("onClientRequest should modify forward path to /tablet if device type is tablet", () => {
+    it("onClientRequest should modify forward path to /tablet if device type is tablet", () => {
         let requestMock = new Request();
         requestMock.device.isTablet = true;
         onClientRequest(requestMock);
-        expect(requestMock.route).toHaveBeenCalled();
-        expect(requestMock.route).toHaveBeenCalledTimes(1);
-        expect(requestMock.route).toHaveBeenCalledWith({ path: '/tablet' + requestMock.path });
+        expect(requestMock.route.called).to.be(true)
+        expect((requestMock.route).callcount).to.be((requestMock.route));
+                expect(requestMock.route.calledWith({ path: '/tablet' + requestMock.path })).to.be(true);
+
     });
 
-    test("onClientRequest should not modify forward path", () => {
+    it("onClientRequest should not modify forward path", () => {
         let requestMock = new Request();
         onClientRequest(requestMock);
         expect(requestMock.setVariable).not.toHaveBeenCalled();

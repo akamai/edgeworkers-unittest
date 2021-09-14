@@ -1,11 +1,14 @@
-import {onOriginResponse} from "work-with-origin-issues/origin-overload/main";
+import {onOriginResponse} from "../../../src/edgeworkers/examples/work-with-origin-issues/origin-overload/main";
 import Request from "request";
 import Response from "response";
 
+const sinon = require("sinon");
+const expect = require('expect.js');
+
 describe('onOriginResponse: This event happens as the origin response is created.', () => {
 
-    beforeEach(() => {
-        jest.clearAllMocks();
+    afterEach(() => {
+        sinon.restore();
     });
 
 test("onOriginResponse should invoke respondWith if response.status is 503", () => {
@@ -13,11 +16,13 @@ test("onOriginResponse should invoke respondWith if response.status is 503", () 
     let responseMock = new Response();
     responseMock.status = 503;
     onOriginResponse(requestMock, responseMock);
-    expect(responseMock.addHeader).toHaveBeenCalled();
-    expect(responseMock.addHeader).toHaveBeenCalledTimes(1);
-    expect(responseMock.addHeader).toHaveBeenCalledWith('Origin-Response-Status', responseMock.status);
-    expect(requestMock.respondWith).toHaveBeenCalledTimes(1);
-    expect(requestMock.respondWith).toHaveBeenCalledWith(200, { 'Content-Type': ['text/html'] }, '<html><script> setTimeout(function () { window.location.href="' + escape(requestMock.path) + '"; }, ' + 10 + '*1000);</script> <body>The origin server is currently overloaded, please retry in ' + 10 + ' seconds </body></html>');
+    expect(responseMock.addHeader.called).to.be(true)
+    expect((responseMock.addHeader).callcount).to.be((responseMock.addHeader));
+            expect(responseMock.addHeader.calledWith('Origin-Response-Status', responseMock.status)).to.be(true);
+
+    expect((requestMock.respondWith).callcount).to.be((requestMock.respondWith));
+            expect(requestMock.respondWith.calledWith(200, { 'Content-Type': ['text/html'] }, '<html><script> setTimeout(function () { window.location.href="' + escape(requestMock.path) + '"; }, ' + 10 + '*1000);</script> <body>The origin server is currently overloaded, please retry in ' + 10 + ' seconds </body></html>')).to.be(true);
+
   });
 
 test("onOriginResponse should not invoke respondWith if response.status is not 503", () => {
@@ -25,9 +30,10 @@ test("onOriginResponse should not invoke respondWith if response.status is not 5
     let responseMock = new Response();
     responseMock.status = 200;
     onOriginResponse(requestMock, responseMock);
-    expect(responseMock.addHeader).toHaveBeenCalled();
-    expect(responseMock.addHeader).toHaveBeenCalledTimes(1);
-    expect(responseMock.addHeader).toHaveBeenCalledWith('Origin-Response-Status', responseMock.status);
+    expect(responseMock.addHeader.called).to.be(true)
+    expect((responseMock.addHeader).callcount).to.be((responseMock.addHeader));
+            expect(responseMock.addHeader.calledWith('Origin-Response-Status', responseMock.status)).to.be(true);
+
     expect(requestMock.respondWith).not.toHaveBeenCalled();
   });
 

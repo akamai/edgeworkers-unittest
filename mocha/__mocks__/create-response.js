@@ -1,1 +1,3 @@
-export const createResponse = jest.fn();
+const sinon = require("sinon");
+
+export const createResponse = sinon.stub();

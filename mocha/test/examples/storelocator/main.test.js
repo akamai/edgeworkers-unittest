@@ -8,50 +8,52 @@ jest.mock('geokdbush', () => {
 }, {virtual: true});
 
 jest.mock('kdbush', () => {
-    return jest.fn().mockImplementation(() => {
+    return {
       return {
         default: jest.fn()
       };
     });
   },{virtual: true});
   
-import {onClientRequest} from "bundle-third-party-modules/storelocator/main";
+import {onClientRequest} from "../../../src/edgeworkers/examples/bundle-third-party-modules/storelocator/main";
 import Request from "request";
 import geokdbush from 'geokdbush';
 
+const sinon = require("sinon");
+const expect = require('expect.js');
 
 describe('store locator API: returns the two stores nearest to the provide latitude and longitude', () => {
 
-    beforeEach(() => {
-        jest.clearAllMocks();
+    afterEach(() => {
+        sinon.restore();
     });
   
-    test("onClientRequest should return error when longitude is not provided in query params", () => {
+    it("onClientRequest should return error when longitude is not provided in query params", () => {
         let requestMock = new Request();
         requestMock.query = 'lat=42.262';
         requestMock.path = '/storelocator';
 
         onClientRequest(requestMock);        
-        expect(requestMock.respondWith).toHaveBeenCalledTimes(1);
+        expect((requestMock.respondWith).callcount).to.be((requestMock.respondWith));
         expect(requestMock.respondWith).toHaveBeenCalledWith(400,
             { 'Content-Type': ['application/json;charset=utf-8'] },
             JSON.stringify({ error: 'lat and lon parameters must be provided' }));
     });
 
-    test("onClientRequest should return error when nearest stores does not exist", () => {
+    it("onClientRequest should return error when nearest stores does not exist", () => {
         let requestMock = new Request();
         requestMock.query = 'lat=42.262&lon=-84.416';
         requestMock.path = '/storelocator';
         geokdbush.around.mockReturnValue(undefined);
 
         onClientRequest(requestMock);        
-        expect(requestMock.respondWith).toHaveBeenCalledTimes(1);
+        expect((requestMock.respondWith).callcount).to.be((requestMock.respondWith));
         expect(requestMock.respondWith).toHaveBeenCalledWith(400,
             { 'Content-Type': ['application/json;charset=utf-8'] },
             JSON.stringify({ error: `Error locating nearby locations. lat:42.262, lon:-84.416` }));
     });
 
-    test("onClientRequest should return 2 closest locations when lat and lon are present and nearby stores exist", () => {
+    it("onClientRequest should return 2 closest locations when lat and lon are present and nearby stores exist", () => {
         let requestMock = new Request();
         requestMock.query = 'lat=42.262&lon=-84.416';
         requestMock.path = '/storelocator';
@@ -108,7 +110,7 @@ describe('store locator API: returns the two stores nearest to the provide latit
         geokdbush.distance.mockReturnValueOnce(10).mockReturnValue(20);
 
         onClientRequest(requestMock);        
-        expect(requestMock.respondWith).toHaveBeenCalledTimes(1);
+        expect((requestMock.respondWith).callcount).to.be((requestMock.respondWith));
         const expected_result = [
             {
               distance: 6.215040397762586,

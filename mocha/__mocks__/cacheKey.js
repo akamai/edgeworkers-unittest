@@ -1,19 +1,12 @@
-export const mockExcludeQueryString = jest.fn();
-export const mockIncludeQueryString= jest.fn();
-export const mockIncludeQueryArgument = jest.fn();
-export const mockIncludeCookie = jest.fn();
-export const mockIncludeHeader = jest.fn();
-export const mockIncludeVariable = jest.fn();
+const sinon = require("sinon");
 
-const CacheKey = jest.fn().mockImplementation(() => {
-  return {
-    excludeQueryString: mockExcludeQueryString,
-    includeQueryString: mockIncludeQueryString,
-    includeQueryArgument: mockIncludeQueryArgument,
-    includeCookie: mockIncludeCookie,
-    includeHeader: mockIncludeHeader,
-    includeVariable: mockIncludeVariable
-    };
-});
-
-export default CacheKey;
+export default class CacheKey {
+  constructor() {
+    this.excludeQueryString = sinon.stub();
+    this.includeQueryString = sinon.stub();
+    this.includeQueryArgument = sinon.stub();
+    this.includeCookie = sinon.stub();
+    this.includeHeader = sinon.stub();
+    this.includeVariable = sinon.stub();
+  }
+}

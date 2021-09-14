@@ -1,39 +1,45 @@
-import {onClientRequest} from "control-cache/cachekey-devicetype/main"
+import {onClientRequest} from "../../../src/edgeworkers/examples/control-cache/cachekey-devicetype/main"
 import Request from "request";
+
+const sinon = require("sinon");
+const expect = require('expect.js');
 
 describe('Include devcie type in cachekey', () => {
 
-    beforeEach(() => {
-        jest.clearAllMocks();
+    afterEach(() => {
+        sinon.restore();
     });
   
-    test("onClientRequest should set variable PMUSER_DEVICETYPE to Mobile", () => {
+    it("onClientRequest should set variable PMUSER_DEVICETYPE to Mobile", () => {
         let requestMock = new Request();
         requestMock.device.isMobile = true;
         onClientRequest(requestMock);
-        expect(requestMock.setVariable).toHaveBeenCalled();
-        expect(requestMock.setVariable).toHaveBeenCalledTimes(2);
-        expect(requestMock.setVariable).toHaveBeenCalledWith('PMUSER_DEVICETYPE', 'Mobile');
-        expect(requestMock.cacheKey.includeVariable).toHaveBeenCalledTimes(1);
+        expect(requestMock.setVariable.called).to.be(true)
+        expect((requestMock.setVariable).callcount).to.be((requestMock.setVariable));
+                expect(requestMock.setVariable.calledWith('PMUSER_DEVICETYPE', 'Mobile')).to.be(true);
+
+        expect((requestMock.cacheKey.includeVariable).callcount).to.be((requestMock.cacheKey.includeVariable));
     });
 
-    test("onClientRequest should set variable PMUSER_DEVICETYPE to Tablet", () => {
+    it("onClientRequest should set variable PMUSER_DEVICETYPE to Tablet", () => {
         let requestMock = new Request();
         requestMock.device.isTablet = true;
         onClientRequest(requestMock);
-        expect(requestMock.setVariable).toHaveBeenCalled();
-        expect(requestMock.setVariable).toHaveBeenCalledTimes(2);
-        expect(requestMock.setVariable).toHaveBeenCalledWith('PMUSER_DEVICETYPE', 'Tablet');
-        expect(requestMock.cacheKey.includeVariable).toHaveBeenCalledTimes(1);
+        expect(requestMock.setVariable.called).to.be(true)
+        expect((requestMock.setVariable).callcount).to.be((requestMock.setVariable));
+                expect(requestMock.setVariable.calledWith('PMUSER_DEVICETYPE', 'Tablet')).to.be(true);
+
+        expect((requestMock.cacheKey.includeVariable).callcount).to.be((requestMock.cacheKey.includeVariable));
     });
 
-    test("onClientRequest should set variable PMUSER_DEVICETYPE to Desktop", () => {
+    it("onClientRequest should set variable PMUSER_DEVICETYPE to Desktop", () => {
         let requestMock = new Request();
         onClientRequest(requestMock);
-        expect(requestMock.setVariable).toHaveBeenCalled();
-        expect(requestMock.setVariable).toHaveBeenCalledTimes(1);
-        expect(requestMock.setVariable).toHaveBeenCalledWith('PMUSER_DEVICETYPE', 'Desktop');
-        expect(requestMock.cacheKey.includeVariable).toHaveBeenCalledTimes(1);
+        expect(requestMock.setVariable.called).to.be(true)
+        expect((requestMock.setVariable).callcount).to.be((requestMock.setVariable));
+                expect(requestMock.setVariable.calledWith('PMUSER_DEVICETYPE', 'Desktop')).to.be(true);
+
+        expect((requestMock.cacheKey.includeVariable).callcount).to.be((requestMock.cacheKey.includeVariable));
     });
 
   });
