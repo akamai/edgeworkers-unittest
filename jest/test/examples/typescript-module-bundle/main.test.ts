@@ -1,6 +1,6 @@
 import {onClientRequest, onClientResponse} from "bundle-third-party-modules/typescript-module-bundle/src/main";
-import Request from "../../../__mocks__/request";
-import Response from "../../../__mocks__/response";
+import Request from "request";
+import Response from "response";
 
 describe('demonstrates unit testing edgeworker written in TypeScript', () => {
 
