@@ -1,4 +1,4 @@
-# Akamai EdgeWorkers Test Mocks
+# Akamai EdgeWorkers Jest Mocks
 
 This module provides a set of Jest mocks for the [EdgeWorkers API](https://developer.akamai.com/api/web_performance/edgeworkers/v1.html). In the Akamai EdgeWorkers execution environment, there are a set of modules and objects provided; since equivalent packages are not available in npm or node, Jest mocks are provided here to be able to execute JS written against the EdgeWorkers API in Node.js for the purpose of testing.
 
