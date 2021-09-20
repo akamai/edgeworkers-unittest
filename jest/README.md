@@ -147,4 +147,4 @@ For more information on EdgeWorkers and EdgeKV, refer to the following resources
 * [EdgeKV Getting Started Guide](https://learn.akamai.com/en-us/webhelp/edgeworkers/edgekv-getting-started-guide/)
 
 ## Reporting Issues
-If you experience any issues with these code samples, please raise a [GitHub issue](https://github.com/akamai/edgeworkers-unittest). Or create a pull request with fixes, suggestions, or your own contributed example.
+If you experience any issues with these code samples, please raise a [GitHub issue](https://github.com/akamai/edgeworkers-unittest/issues). Or create a pull request with fixes, suggestions, or your own contributed example.
