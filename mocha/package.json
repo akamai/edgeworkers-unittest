@@ -1,48 +1,26 @@
 {
   "name": "edgeworkers-mocha-mocks",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Akamai EdgeWorkers Mocha mocks",
   "dependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/plugin-transform-runtime": "^7.15.0",
+    "@babel/preset-env": "^7.14.7",
     "@babel/preset-typescript": "^7.14.5",
     "@babel/runtime": "^7.15.4",
-    "@types/akamai-edgeworkers": "^1.0.6",
-    "@types/mocha": "^9.0.0",
+    "@babel/register": "^7.15.3",
     "babel-plugin-module-resolver": "^4.1.0",
-    "eslint": "^7.32.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-config-xo": "^0.27.2",
-    "eslint-plugin-prettier": "^3.1.1",
     "expect.js": "^0.3.1",
     "md5": "^2.3.0",
     "mocha": "^8.4.0",
-    "prettier": "^1.19.1",
     "sinon": "^11.1.2",
     "ts-mocha": "^8.0.0",
     "typescript": "^4.4.2"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.14.7",
-    "@babel/core": "^7.15.0",
-    "@babel/plugin-transform-runtime": "^7.15.0",
-    "@babel/register": "^7.15.3",
+    "@types/akamai-edgeworkers": "^1.0.6",
+    "@types/mocha": "^9.0.0",
     "@types/md5": "^2.3.1"
-  },
-  "eslintConfig": {
-    "extends": [
-      "xo",
-      "prettier"
-    ],
-    "env": {
-      "mocha": true,
-      "node": true
-    },
-    "rules": {
-      "prettier/prettier": "error",
-      "no-unused-vars": "warn"
-    },
-    "plugins": [
-      "prettier"
-    ]
   },
   "scripts": {
     "test": "mocha --recursive --require ts-node/register"

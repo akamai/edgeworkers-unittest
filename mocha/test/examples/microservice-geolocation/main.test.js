@@ -7,7 +7,7 @@ const expect = require('expect.js');
 describe('Respond with JSON formatted geographical location information', () => {
 
     afterEach(() => {
-        sinon.restore();
+        sinon.reset();
     });
   
     it("return geographical location information", () => {
@@ -18,8 +18,8 @@ describe('Respond with JSON formatted geographical location information', () => 
         requestMock.userLocation.region = 'AB';
         requestMock.userLocation.city = 'STOCKHOLM';
         onClientRequest(requestMock);
-        expect((requestMock.respondWith).callcount).to.be((requestMock.respondWith));
-                expect(requestMock.respondWith.calledWith(200, {}, JSON.stringify({ geoInfo: {"continent":"EU","country":"SE","zip":"N/A","region":"AB","city":"STOCKHOLM","source":"Akamai EdgeWorkers"} }))).to.be(true);
+        expect((requestMock.respondWith).callCount).to.be(1);
+        expect(requestMock.respondWith.calledWith(200, {}, JSON.stringify({ geoInfo: {"continent":"EU","country":"SE","zip":"N/A","region":"AB","city":"STOCKHOLM","source":"Akamai EdgeWorkers"} }))).to.be(true);
 
         
     });

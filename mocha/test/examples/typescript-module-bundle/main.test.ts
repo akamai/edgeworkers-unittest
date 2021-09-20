@@ -8,7 +8,7 @@ const expect = require('expect.js');
 describe('demonstrates unit testing edgeworker written in TypeScript', () => {
 
     afterEach(function () {
-        sinon.restore();
+        sinon.reset();
     });
     
     it("onClientRequest should respond with Hello World", () => {

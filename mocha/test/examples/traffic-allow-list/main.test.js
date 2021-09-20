@@ -7,7 +7,7 @@ const expect = require('expect.js');
 describe('onClientRequest', () => {
 
     afterEach(function () {
-        sinon.restore();
+        sinon.reset();
     });    
     
     it("should allow message if country of end user is not present in US embargoed countries list", () => {

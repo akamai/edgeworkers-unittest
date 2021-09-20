@@ -7,24 +7,23 @@ import {TextDecoderStream, TextEncoderStream} from "text-encode-transform";
 const sinon = require("sinon");
 const expect = require('expect.js');
 
-
 describe('demonstrates how an EdgeWorker can be used to modify an HTML response stream by adding content to the response.', () => {
-
     afterEach(() => {
-        sinon.restore();
+        sinon.reset();
     });
-  
-    it("Simple Modify HTML Response - Streaming Response Version", () => {
+
+    it("Simple Modify HTML Response - Streaming Response Version", async () => {
         let requestMock = new Request();
         let mockHttpResponse = new HttpResponse();
-        createResponse.mockReturnValue({"status":200, "headers":{}, "body":{}});
-        httpRequest.mockReturnValue(new Promise(function(resolve) {resolve(mockHttpResponse)}));
+        createResponse.returns({"status":200, "headers":{}, "body":{}});
+        httpRequest.returns(new Promise(function(resolve) {resolve(mockHttpResponse)}));
 
         const responsePromise = responseProvider(requestMock);
-                expect(httpRequest.calledWith("https://www.example.com/helloworld?param1=value1&param2=value2")).to.be(true);
+        expect(httpRequest.calledWith("https://www.example.com/helloworld?param1=value1&param2=value2")).to.be(true);
 
-        expect(responsePromise).resolves.toEqual({"body": {}, "headers": {}, "status": 200});
-               
+        const response = await responsePromise;
+
+        // comparing using JSON.stringify to prevent property order from causing false negative
+        expect(JSON.stringify(response) === JSON.stringify({"body": {}, "headers": {}, "status": 200}));
     });
-
 });

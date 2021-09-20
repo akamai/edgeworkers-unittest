@@ -1,15 +1,24 @@
 const sinon = require("sinon");
 
+export const mock_Cookies_toHeader = sinon.stub();
+export const mock_Cookies_get = sinon.stub();
+export const mock_Cookies_getAll = sinon.stub();
+export const mock_Cookies_names = sinon.stub();
+export const mock_Cookies_add = sinon.stub();
+export const mock_Cookies_delete = sinon.stub();
+
 export class Cookies {
   constructor() {
-    this.toHeader = sinon.stub();
-    this.get = sinon.stub();
-    this.getAll = sinon.stub();
-    this.names = sinon.stub();
-    this.add = sinon.stub();
-    this.delete = sinon.stub();
+    this.toHeader = mock_Cookies_toHeader;
+    this.get = mock_Cookies_get;
+    this.getAll = mock_Cookies_getAll;
+    this.names = mock_Cookies_names;
+    this.add = mock_Cookies_add;
+    this.delete = mock_Cookies_delete;
   }
 }
+
+export const mock_SetCookie_toHeader = sinon.stub();
 
 export class SetCookie {
   constructor() {
@@ -22,6 +31,6 @@ export class SetCookie {
     this.httpOnly = false;
     this.secure = false;
     this.sameSite = '';
-    this.toHeader = sinon.stub();
+    this.toHeader = mock_SetCookie_toHeader;
   }
 }

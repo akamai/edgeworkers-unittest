@@ -8,15 +8,15 @@ const expect = require('expect.js');
 describe('Remove incoming Cookies and Remove Set-Cookie for outgoing for Static Files', () => {
 
     afterEach(() => {
-        sinon.restore();
+        sinon.reset();
     });
   
     it("onClientRequest should remove Cookie from static files based on extensions", () => {
         let requestMock = new Request();
         requestMock.path = "/image.jpg";
         onClientRequest(requestMock);
-        expect((requestMock.removeHeader).callcount).to.be((requestMock.removeHeader));
-                expect(requestMock.removeHeader.calledWith("Cookie")).to.be(true);
+        expect((requestMock.removeHeader).callCount).to.be(1);
+        expect(requestMock.removeHeader.calledWith("Cookie")).to.be(true);
    
     });
 
@@ -24,7 +24,7 @@ describe('Remove incoming Cookies and Remove Set-Cookie for outgoing for Static 
         let requestMock = new Request();
         requestMock.path = "/books";
         onClientRequest(requestMock);
-        expect(requestMock.removeHeader).not.toHaveBeenCalled();
+        expect(requestMock.removeHeader.callCount).to.be(0);
     });
 
     it("onClientResponse should remove Set-Cookie for outgoing for Static Files based on extensions", () => {
@@ -32,8 +32,8 @@ describe('Remove incoming Cookies and Remove Set-Cookie for outgoing for Static 
         let responseMock = new Response();
         requestMock.path = "/image.jpg";
         onClientResponse(requestMock, responseMock);
-        expect((responseMock.removeHeader).callcount).to.be((responseMock.removeHeader));
-                expect(responseMock.removeHeader.calledWith("Set-Cookie")).to.be(true);
+        expect((responseMock.removeHeader).callCount).to.be(1);
+        expect(responseMock.removeHeader.calledWith("Set-Cookie")).to.be(true);
  
     });
 
@@ -42,7 +42,7 @@ describe('Remove incoming Cookies and Remove Set-Cookie for outgoing for Static 
         let responseMock = new Response();
         requestMock.path = "/books";
         onClientResponse(requestMock, responseMock);
-        expect(responseMock.removeHeader).not.toHaveBeenCalled();
+        expect(responseMock.removeHeader.callCount).to.be(0);
     });
 
 });

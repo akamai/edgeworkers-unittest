@@ -1,8 +1,6 @@
 # Akamai EdgeWorkers Test Mocks
 
-This module a set of Jest mocks for the [EdgeWorkers API](https://developer.akamai.com/api/web_performance/edgeworkers/v1.html). In the Akamai EdgeWorkers execution environment, there are a set of modules and objects provided; since equivalent packages are not available in npm or node, Jest mocks are provided here to be able to execute JS written against the EdgeWorkers API in Node.js for the purpose of testing.
-
-These mocks are provided using [manual mocks](https://jestjs.io/docs/en/manual-mocks) and allow for user control of their functions.  
+This module a set of mocks of the [EdgeWorkers API](https://developer.akamai.com/api/web_performance/edgeworkers/v1.html) for use with Mocha+Sinon. In the Akamai EdgeWorkers execution environment, there are a set of modules and objects provided; since equivalent packages are not available in npm or node, Sinon mocks are provided here to be able to execute JS written against the EdgeWorkers API in Node.js for the purpose of testing.
 
 This isn't a perfect solution, as:
 * Mocks provided here will not perfectly replicate the API.
@@ -16,7 +14,6 @@ The EdgeWorker has the following structure:
 
 * `src` - the location of your main.js and bundle.json.  All additional modules should go here.
 * `test` - unit tests
-
 
 ## Setup
 
@@ -32,75 +29,80 @@ npm init
 Here we are going to cover getting the node modules needed installed, as well as config file setup.
 
 #### Install node modules
-The mocks for this project are published as the node module [edgeworkers-jest-mocks](https://www.npmjs.com/package/edgeworkers-jest-mocks). You can install that by running the following in your project directory:
+The mocks for this project are published as the node module [edgeworkers-mocha-mocks](https://www.npmjs.com/package/edgeworkers-mocha-mocks). You can install that by running the following in your project directory:
 
 ```
-npm install --save-dev edgeworkers-jest-mocks
+npm install --save-dev edgeworkers-mocha-mocks
 ```
 
 ### Step 3:
 
 #### setup package.json
-Make sure you have the following configured in the `package.json` file:
-* Set the test script to jest: 
+Make sure you set the test script defined in `package.json` to call Mocha, optionally with the `recursive` parameter to look for test files nested in the `test` directory and with `--require ts-node/register` to support running TypeScript tests.
   ```
   "scripts": {
-    "test": "jest"
+    "test": "mocha --recursive --require ts-node/register"
   },
-  ```
-* Configure Jest so that the EdgeWorkers API mocks are easier to import
-  ```
-  "jest": {
-    "testEnvironment": "node",
-    "transformIgnorePatterns": [
-      "node_modules/(?!edgeworkers-jest-mocks/__mocks__)"
-    ],
-    "moduleDirectories": [
-      "node_modules",
-      "node_modules/edgeworkers-jest-mocks/__mocks__"
-    ]
-  }
   ```
 
 ### Step 4:
 
-#### setup babel.config.json
+#### configure Babel to support ESNext as used by Akamai EdgeWorkers
+
 Babel is included as a dependency to fill in for the newer version of EcmaScript used by Akamai EdgeWorkers. To configure this correctly, add the following as a `babel.config.json` file (create a json file and name it as `babel.config.json` if it does not exists):
 ```
 {
-  "presets": ["@babel/preset-env"],
+  "presets": [
+    ["@babel/preset-env"], 
+    ["@babel/preset-typescript"]
+  ],
   "plugins": [
-    ["@babel/transform-runtime"]
+    ["@babel/plugin-transform-runtime"],
+    [
+      "module-resolver", {
+        "root": [
+          "node_modules/edgeworkers-mocha-mocks/__mocks__"
+        ]
+      }
+    ]
   ]
 }
 ```
+The inclusion `preset-typescript` is optional and only needed if you are using TypeScript.
+
+We also need to tell Mocha to run using Babel in a `.mocharc.yaml` file (create a yaml file and name it as `.mocharc.yaml` if it does not exists):
+* Configure Mocha inside `.mocharc.yaml` to call Babel and optionally to call TypeScript test extensions:
+  ```
+  require:
+    - '@babel/register'
+  extension: ['ts', 'tsx', 'js']
+  ```
 
 ### Step 5:
 
 #### Writing a Test
 After importing an edgeworker or its functions from the main.js file, you can write any kind of tests you need. Tests written against [EdgeWorker event handlers](https://techdocs.akamai.com/edgeworkers/docs/event-handler-functions) require creating a Request or Response mock and then calling the event handler function with that mock.
 
-Here is a quick example of a test written in Jest against an EdgeWorker found in src/main.js:
+Here is a quick example of a test written in Mocha using [expect.js](https://github.com/Automattic/expect.js/) assertions against an EdgeWorker found in src/main.js:
 
 ```js
 import * as edgeworker from "../src/main.js";
 import Request from 'request';
 
-describe('Simple Example', () => {
+const sinon = require("sinon");
+const expect = require('expect.js');
 
-    beforeEach(() => {
-        jest.clearAllMocks();
-    });
-  
-    test("functional test against onClientRequest", async () => {
+describe('Simple example ', () => {
+
+    it("should run a basic functional test against onClientRequest", async () => {
         let requestMock = new Request();
         edgeworker.onClientRequest(requestMock);
 
-        expect(requestMock.respondWith).toHaveBeenCalledTimes(1);
-        expect(requestMock.respondWith).toHaveBeenCalledWith(200, {}, "<html><body><h1>Test Page</h1></body></html>");
+        expect(requestMock.respondWith.callCount).to.be(1);
+        expect(requestMock.respondWith.calledWith(200, {}, "<html><body><h1>Test Page</h1></body></html>")).to.be(true);
     });
 
-    test("unit test an edgeworker function", async () => {
+    it("should unit test an edgeworker function", () => {
         let result = edgeworker.someFunction(42);
 
         expect(result != null);
@@ -109,20 +111,45 @@ describe('Simple Example', () => {
 }); 
 ```
 
-More example tests are available [under the test/examples folder](https://github.com/akamai/edgeworkers-unittest/tree/main/test/examples). If needed, a [good overview of using Jest is available from Flaviocopes](https://flaviocopes.com/jest/).
+More example tests are available [under the test/examples folder](https://github.com/akamai/edgeworkers-unittest/tree/main/test/examples).
 
 ### Step 6:
 
 #### Running Tests
 
-Testing is provided via the [Jest](https://jestjs.io/) framework.
-To run your unit tests, execute the following command from the command line:
+Testing is provided via the [Mocha](https://mochajs.org/) framework.
+To run unit tests, execute the following command from the command line:
 
 ```
 npm test
 ```
 
-This will run all tests in the `test` directory following the `Jest` conventions.  If you want more tests, name them in the pattern *.test.js.
+This will run all tests in the `test` directory.
+
+## Known Issues
+
+Imports in Node.js work differently than in the plain ESNext used by Akamai EdgeWorkers. As a result, calls to import implicitly from the same directory as an EdgeWorker do not work when called using Node.js with Mocha.
+
+Consider the following example code from an EdgeWorker `main.js`:
+
+```
+import { usefulFunction } from 'utils/helper.js';
+```
+
+The above will fail with an error:
+
+```
+Error: Cannot find module 'utils/helper.js'
+```
+
+To fix the issue, include the current directory in the import call, like so:
+
+```
+import { usefulFunction } from './utils/helper.js';
+```
+
+This change will work with both Node.js and the Akamai EdgeWorkers runtime.
+
 
 ## Examples
 
@@ -147,4 +174,4 @@ For more information on EdgeWorkers and EdgeKV, refer to the following resources
 * [EdgeKV Getting Started Guide](https://learn.akamai.com/en-us/webhelp/edgeworkers/edgekv-getting-started-guide/)
 
 ## Reporting Issues
-If you experience any issues with these code samples, please raise a [GitHub issue](https://github.com/akamai/edgeworkers-unittest). Or create a pull request with fixes, suggestions, or your own contributed example.
+If you experience any issues with these code samples, please raise a [GitHub issue](https://github.com/akamai/edgeworkers-examples/issues). Or create a pull request with fixes, suggestions, or your own contributed example.

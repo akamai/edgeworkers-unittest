@@ -7,7 +7,7 @@ const expect = require('expect.js');
 describe('Include devcie type in cachekey', () => {
 
     afterEach(() => {
-        sinon.restore();
+        sinon.reset();
     });
   
     it("onClientRequest should set variable PMUSER_DEVICETYPE to Mobile", () => {
@@ -15,10 +15,10 @@ describe('Include devcie type in cachekey', () => {
         requestMock.device.isMobile = true;
         onClientRequest(requestMock);
         expect(requestMock.setVariable.called).to.be(true)
-        expect((requestMock.setVariable).callcount).to.be((requestMock.setVariable));
-                expect(requestMock.setVariable.calledWith('PMUSER_DEVICETYPE', 'Mobile')).to.be(true);
+        expect((requestMock.setVariable).callCount).to.be(2);
+        expect(requestMock.setVariable.calledWith('PMUSER_DEVICETYPE', 'Mobile')).to.be(true);
 
-        expect((requestMock.cacheKey.includeVariable).callcount).to.be((requestMock.cacheKey.includeVariable));
+        expect((requestMock.cacheKey.includeVariable).callCount).to.be(1);
     });
 
     it("onClientRequest should set variable PMUSER_DEVICETYPE to Tablet", () => {
@@ -26,20 +26,20 @@ describe('Include devcie type in cachekey', () => {
         requestMock.device.isTablet = true;
         onClientRequest(requestMock);
         expect(requestMock.setVariable.called).to.be(true)
-        expect((requestMock.setVariable).callcount).to.be((requestMock.setVariable));
-                expect(requestMock.setVariable.calledWith('PMUSER_DEVICETYPE', 'Tablet')).to.be(true);
+        expect((requestMock.setVariable).callCount).to.be(2);
+        expect(requestMock.setVariable.calledWith('PMUSER_DEVICETYPE', 'Tablet')).to.be(true);
 
-        expect((requestMock.cacheKey.includeVariable).callcount).to.be((requestMock.cacheKey.includeVariable));
+        expect((requestMock.cacheKey.includeVariable).callCount).to.be(1);
     });
 
     it("onClientRequest should set variable PMUSER_DEVICETYPE to Desktop", () => {
         let requestMock = new Request();
         onClientRequest(requestMock);
         expect(requestMock.setVariable.called).to.be(true)
-        expect((requestMock.setVariable).callcount).to.be((requestMock.setVariable));
-                expect(requestMock.setVariable.calledWith('PMUSER_DEVICETYPE', 'Desktop')).to.be(true);
+        expect((requestMock.setVariable).callCount).to.be(1);
+        expect(requestMock.setVariable.calledWith('PMUSER_DEVICETYPE', 'Desktop')).to.be(true);
 
-        expect((requestMock.cacheKey.includeVariable).callcount).to.be((requestMock.cacheKey.includeVariable));
+        expect((requestMock.cacheKey.includeVariable).callCount).to.be(1);
     });
 
   });

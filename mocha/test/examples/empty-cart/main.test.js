@@ -8,23 +8,23 @@ const expect = require('expect.js');
 describe('EdgeWorker that will respond with an empty JSON for an empty shopping cart', () => {
 
     afterEach(() => {
-        sinon.restore();
+        sinon.reset();
     });
   
     it("return empty JSON when shopping cart is empty", () => {
         let requestMock = new Request();
         onClientRequest(requestMock);
-        expect((requestMock.respondWith).callcount).to.be((requestMock.respondWith));
-                expect(requestMock.respondWith.calledWith(200, { 'Content-Type': ['application/json; charset=utf-8'] }, '{}')).to.be(true);
+        expect((requestMock.respondWith).callCount).to.be(1);
+        expect(requestMock.respondWith.calledWith(200, { 'Content-Type': ['application/json; charset=utf-8'] }, '{}')).to.be(true);
 
         
     });
 
     it("respondWith is not called when shopping cart is not empty", () => {
         let requestMock = new Request();
-        mock_Cookies_get.mockReturnValue('macbook pro');
+        mock_Cookies_get.returns('macbook pro');
         onClientRequest(requestMock);
-        expect(requestMock.respondWith).not.toHaveBeenCalled();
+        expect(requestMock.respondWith.callCount).to.be(0);
         
     });
 

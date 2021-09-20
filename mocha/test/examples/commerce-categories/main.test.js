@@ -7,7 +7,7 @@ const expect = require('expect.js');
 describe('Reply to Product Category API call directly from Edge server', () => {
 
     afterEach(() => {
-        sinon.restore();
+        sinon.reset();
     });
   
     it("when invoked with search param beauty (title)", () => {
@@ -17,13 +17,13 @@ describe('Reply to Product Category API call directly from Edge server', () => {
         requestMock.query = "search=beauty";
 
         onClientRequest(requestMock);
-        expect((requestMock.respondWith).callcount).to.be((requestMock.respondWith));
+        expect((requestMock.respondWith).callCount).to.be(1);
         let expectedResponse = [{
             title: 'Beauty',
             id: 1110,
             desc: 'Makeup, skin care, perfume, cologne, hair care, shampoo, conditioner.'
           }]
-                expect(requestMock.respondWith.calledWith(200, { 'Content-Type': ['application/json'] },  JSON.stringify(expectedResponse))).to.be(true);
+        expect(requestMock.respondWith.calledWith(200, { 'Content-Type': ['application/json'] },  JSON.stringify(expectedResponse))).to.be(true);
 
         
     });
@@ -35,13 +35,13 @@ describe('Reply to Product Category API call directly from Edge server', () => {
         requestMock.query = "search=rugs";
 
         onClientRequest(requestMock);
-        expect((requestMock.respondWith).callcount).to.be((requestMock.respondWith));
+        expect((requestMock.respondWith).callCount).to.be(1);
         let expectedResponse = [{
             title: 'Furniture',
             id: 1040,
             desc: 'Desks, chairs, couches, tables, lamps, rugs.'
           }];
-                expect(requestMock.respondWith.calledWith(200, { 'Content-Type': ['application/json'] },  JSON.stringify(expectedResponse))).to.be(true);
+        expect(requestMock.respondWith.calledWith(200, { 'Content-Type': ['application/json'] },  JSON.stringify(expectedResponse))).to.be(true);
 
         
     });
@@ -53,13 +53,13 @@ describe('Reply to Product Category API call directly from Edge server', () => {
         requestMock.query = "search=1150";
 
         onClientRequest(requestMock);
-        expect((requestMock.respondWith).callcount).to.be((requestMock.respondWith));
+        expect((requestMock.respondWith).callCount).to.be(1);
         let expectedResponse = [{
             title: 'Jewelry',
             id: 1150,
             desc: 'Watches, bracelets, necklaces, earings, gemstones, pearls, diamonds, rings.'
           }];
-                expect(requestMock.respondWith.calledWith(200, { 'Content-Type': ['application/json'] },  JSON.stringify(expectedResponse))).to.be(true);
+        expect(requestMock.respondWith.calledWith(200, { 'Content-Type': ['application/json'] },  JSON.stringify(expectedResponse))).to.be(true);
 
         
     });
@@ -71,9 +71,9 @@ describe('Reply to Product Category API call directly from Edge server', () => {
         requestMock.query = "search=2150";
 
         onClientRequest(requestMock);
-        expect((requestMock.respondWith).callcount).to.be((requestMock.respondWith));
+        expect((requestMock.respondWith).callCount).to.be(1);
         let expectedResponse = [];
-                expect(requestMock.respondWith.calledWith(200, { 'Content-Type': ['application/json'] },  JSON.stringify(expectedResponse))).to.be(true);
+        expect(requestMock.respondWith.calledWith(200, { 'Content-Type': ['application/json'] },  JSON.stringify(expectedResponse))).to.be(true);
 
         
     });
@@ -83,7 +83,7 @@ describe('Reply to Product Category API call directly from Edge server', () => {
       requestMock.path = '/commerce/categ';
 
       onClientRequest(requestMock);
-      expect(requestMock.respondWith).not.toHaveBeenCalled();
+      expect(requestMock.respondWith.callCount).to.be(0);
       
   });
 

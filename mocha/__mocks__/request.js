@@ -4,6 +4,16 @@ import Device from './device';
 import UserLocation from './userLocation';
 import CacheKey from './cacheKey';
 
+export const mockRespondWith = sinon.stub();
+export const mockGetHeader = sinon.stub();
+export const mockSetHeader = sinon.stub();
+export const mockAddHeader = sinon.stub();
+export const mockRemoveHeader = sinon.stub();
+export const mockGetHeaders = sinon.stub();
+export const mockGetVariable = sinon.stub();
+export const mockSetVariable = sinon.stub();
+export const mockRoute = sinon.stub();
+
 export default class Request {
   constructor() {
     this.host = "www.example.com";
@@ -16,14 +26,14 @@ export default class Request {
     this.device = new Device();
     this.cpCode = 1191398;
     this.cacheKey = new CacheKey();
-    this.respondWith = sinon.stub();
-    this.getHeader = sinon.stub();
-    this.setHeader = sinon.stub();
-    this.addHeader = sinon.stub();
-    this.removeHeader = sinon.stub();
-    this.getHeaders = sinon.stub();
-    this.getVariable = sinon.stub();
-    this.setVariable = sinon.stub();
-    this.route = sinon.stub();
+    this.respondWith = mockRespondWith;
+    this.getHeader = mockGetHeader;
+    this.setHeader = mockSetHeader;
+    this.addHeader = mockAddHeader;
+    this.removeHeader = mockRemoveHeader;
+    this.getHeaders = mockGetHeaders;
+    this.getVariable = mockGetVariable;
+    this.setVariable = mockSetVariable;
+    this.route = mockRoute;
   }
 }
