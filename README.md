@@ -1,11 +1,11 @@
 # Akamai EdgeWorkers Test Mocks
 
-This repository provides a set of mocks for one of two testing frameworks:
+This repository provides a set of mocks for two testing frameworks:
 
-1. Jest
-2. Mocha+Sinon
+1. [Jest](https://github.com/bmatthew/edgeworkers-unittest/jest)
+2. [Mocha+Sinon](https://github.com/bmatthew/edgeworkers-unittest/mocha)
 
-More detail needs to be filled in here...
+More detail can be found in the above README pages.
 
 ## Contributing 
 
