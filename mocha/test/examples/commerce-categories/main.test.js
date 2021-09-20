@@ -24,8 +24,6 @@ describe('Reply to Product Category API call directly from Edge server', () => {
             desc: 'Makeup, skin care, perfume, cologne, hair care, shampoo, conditioner.'
           }]
         expect(requestMock.respondWith.calledWith(200, { 'Content-Type': ['application/json'] },  JSON.stringify(expectedResponse))).to.be(true);
-
-        
     });
 
     it("when invoked with search param rugs (desc)", () => {
@@ -42,8 +40,6 @@ describe('Reply to Product Category API call directly from Edge server', () => {
             desc: 'Desks, chairs, couches, tables, lamps, rugs.'
           }];
         expect(requestMock.respondWith.calledWith(200, { 'Content-Type': ['application/json'] },  JSON.stringify(expectedResponse))).to.be(true);
-
-        
     });
 
     it("when invoked with search param 1150 (id)", () => {
@@ -60,8 +56,6 @@ describe('Reply to Product Category API call directly from Edge server', () => {
             desc: 'Watches, bracelets, necklaces, earings, gemstones, pearls, diamonds, rings.'
           }];
         expect(requestMock.respondWith.calledWith(200, { 'Content-Type': ['application/json'] },  JSON.stringify(expectedResponse))).to.be(true);
-
-        
     });
 
     it("when invoked with search param 2150 (id not present) should return empty list in response", () => {
@@ -73,9 +67,7 @@ describe('Reply to Product Category API call directly from Edge server', () => {
         onClientRequest(requestMock);
         expect((requestMock.respondWith).callCount).to.be(1);
         let expectedResponse = [];
-        expect(requestMock.respondWith.calledWith(200, { 'Content-Type': ['application/json'] },  JSON.stringify(expectedResponse))).to.be(true);
-
-        
+        expect(requestMock.respondWith.calledWith(200, { 'Content-Type': ['application/json'] },  JSON.stringify(expectedResponse))).to.be(true);        
     });
 
     it("when invoked with incorrect path", () => {
@@ -84,8 +76,5 @@ describe('Reply to Product Category API call directly from Edge server', () => {
 
       onClientRequest(requestMock);
       expect(requestMock.respondWith.callCount).to.be(0);
-      
+    });
   });
-
-  });
-

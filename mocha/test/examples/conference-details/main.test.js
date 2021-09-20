@@ -16,8 +16,6 @@ describe('Conference Attendance Code API call that returns the meeting details o
         onClientRequest(requestMock);
         expect((requestMock.respondWith).callCount).to.be(1);
         expect(requestMock.respondWith.calledWith(200, { 'Content-Type': ['text/html'] }, '<html>Welcome to the conference.<br>Here are the venue details:<br><b>123 Main Street, San Francisco, CA<br>Dec, 6th 2019 10pm sharp</b></html>')).to.be(true);
-
-        
     });
 
     it("return error message when the code is incorrect", () => {
@@ -26,9 +24,6 @@ describe('Conference Attendance Code API call that returns the meeting details o
         onClientRequest(requestMock);
         expect((requestMock.respondWith).callCount).to.be(1);
         expect(requestMock.respondWith.calledWith(200, { 'Content-Type': ['text/html'] }, '<html>You have entered an incorrect code.</html>')).to.be(true);
-
-        
     });
 
 });
-

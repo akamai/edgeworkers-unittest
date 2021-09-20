@@ -25,5 +25,4 @@ describe('demonstrates unit testing edgeworker written in TypeScript', () => {
         onClientResponse(requestMock, responseMock);
         expect(responseMock.setHeader.calledWith('X-Hello-World','5e748421a43bbfa7eaffe4f8e0be823e')).to.be(true);
     });
-
 });

@@ -27,5 +27,4 @@ describe('onClientRequest', () => {
         expect(requestMock.respondWith.callCount).to.be(1);
         expect(requestMock.respondWith.calledWith(403, {"Content-Type": ["text/html;charset=utf-8"]}, "<html><body><h1>Sorry, users from KP may not view this content</h1></body></html>", "EW-embargo")).to.be(true);
     });
-
 });

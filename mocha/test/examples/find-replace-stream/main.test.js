@@ -32,8 +32,5 @@ describe('Modify an HTML streamed response by replacing text string', () => {
             expect(response).toEqual({"status":200, "headers":{"header3": "value3"}, "body":"modified HTTP response abc"});
             expect(TextDecoderStream.called).to.be(true)
         }).catch((error)=>console.log(error));
-               
     });
-
 });
-

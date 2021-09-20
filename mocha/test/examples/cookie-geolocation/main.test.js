@@ -35,10 +35,6 @@ describe('Add a geoloation data to a cookie in the HTTP response.', () => {
         expect((responseMock.addHeader).callCount).to.be(2);
         expect(responseMock.addHeader.calledWith("Set-Cookie", "location=US+CT+SYRACUSE; Max-Age=86400; Path=/")).to.be(true);
         expect(responseMock.addHeader.calledWith("Set-Cookie", "salesRegion=Northeast:55982803; Max-Age=86400; Path=/")).to.be(true);
-   
-
     });
-
-   
 });
 

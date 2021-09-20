@@ -16,7 +16,6 @@ describe('EdgeWorker that generates a simple html page at the Edge and adds a re
         onClientRequest(requestMock);
         expect((requestMock.respondWith).callCount).to.be(1);
         expect(requestMock.respondWith.calledWith(200, {}, "<html><body><h1>Hello World From Akamai EdgeWorkers</h1></body></html>")).to.be(true);
-
     });
 
     it("onClientResponse should setHeader X-Hello-World in response", () => {
@@ -25,8 +24,6 @@ describe('EdgeWorker that generates a simple html page at the Edge and adds a re
         onClientResponse(requestMock, responseMock);
         expect((responseMock.setHeader).callCount).to.be(1);
         expect(responseMock.setHeader.calledWith("X-Hello-World", "From Akamai EdgeWorkers")).to.be(true);
-
     });
 
 });
-

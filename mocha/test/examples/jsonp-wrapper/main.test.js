@@ -26,11 +26,7 @@ describe('wrap JSON response with dynamic unique callback function leveraging Re
 
         responsePromise.then( (response) => {
             expect(createResponse.calledWith(200, {}, mockHttpResponse.body)).to.be(true);
-
             expect(response).toEqual({"status":200, "headers":{}, "body":{}});
         }).catch((error)=>console.log(error));
-               
     });
-
 });
-

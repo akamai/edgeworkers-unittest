@@ -22,7 +22,6 @@ it("should invoke respondWith if response.status is 503", () => {
 
     expect((requestMock.respondWith).callCount).to.be(1);
     expect(requestMock.respondWith.calledWith(200, { 'Content-Type': ['text/html'] }, '<html><script> setTimeout(function () { window.location.href="' + escape(requestMock.path) + '"; }, ' + 10 + '*1000);</script> <body>The origin server is currently overloaded, please retry in ' + 10 + ' seconds </body></html>')).to.be(true);
-
   });
 
 it("should not invoke respondWith if response.status is not 503", () => {
@@ -36,5 +35,4 @@ it("should not invoke respondWith if response.status is not 503", () => {
 
     expect(requestMock.respondWith.callCount).to.be(0);
   });
-
 });

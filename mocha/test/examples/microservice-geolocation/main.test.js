@@ -20,9 +20,5 @@ describe('Respond with JSON formatted geographical location information', () => 
         onClientRequest(requestMock);
         expect((requestMock.respondWith).callCount).to.be(1);
         expect(requestMock.respondWith.calledWith(200, {}, JSON.stringify({ geoInfo: {"continent":"EU","country":"SE","zip":"N/A","region":"AB","city":"STOCKHOLM","source":"Akamai EdgeWorkers"} }))).to.be(true);
-
-        
     });
-
 });
-

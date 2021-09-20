@@ -16,8 +16,6 @@ describe('EdgeWorker that will respond with an empty JSON for an empty shopping 
         onClientRequest(requestMock);
         expect((requestMock.respondWith).callCount).to.be(1);
         expect(requestMock.respondWith.calledWith(200, { 'Content-Type': ['application/json; charset=utf-8'] }, '{}')).to.be(true);
-
-        
     });
 
     it("respondWith is not called when shopping cart is not empty", () => {
@@ -25,8 +23,6 @@ describe('EdgeWorker that will respond with an empty JSON for an empty shopping 
         mock_Cookies_get.returns('macbook pro');
         onClientRequest(requestMock);
         expect(requestMock.respondWith.callCount).to.be(0);
-        
     });
 
 });
-

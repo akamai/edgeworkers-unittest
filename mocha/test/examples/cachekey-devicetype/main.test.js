@@ -43,8 +43,4 @@ describe('Include devcie type in cachekey', () => {
     });
 
   });
-
-
-
-
   

@@ -77,7 +77,6 @@ describe('multivariate testing: assign new users to an A/B testing group', () =>
 
         expect(requestMock.respondWith.called).to.be(true)
         expect(requestMock.respondWith.calledWith(200, { 'Content-Type': ['application/json'] }, JSON.stringify({ heroImageUrl: '/assets/images/hero2c.jpg', text: 'This is variant 2c, generated from an Akamai EdgeWorker'}))).to.be(true);
-
     });
 
     it("onClientResponse should call the responseAction function, if it exists on the variant", () => {
@@ -96,8 +95,5 @@ describe('multivariate testing: assign new users to an A/B testing group', () =>
         expect(responseMock.addHeader.calledWith("Set-Cookie", "1a")).to.be(true);
         expect(responseMock.addHeader.calledWith("Set-Cookie", "2b")).to.be(true);
         expect(responseMock.addHeader.calledWith("X-Variant", "2b")).to.be(true);
-
     });
-
 });
-

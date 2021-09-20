@@ -22,7 +22,6 @@ describe('Accrue values in a cookie as a visitor traverses a site, and trigger a
 
         expect((responseMock.setHeader).callCount).to.be(1);
         expect(responseMock.setHeader.calledWith("Set-Cookie", ["visited cookie: about-us"])).to.be(true);
-   
     });
 
     it("onClientResponse should set visited cookie in response header when no. of sections visited is within max limit", () => {
@@ -36,7 +35,6 @@ describe('Accrue values in a cookie as a visitor traverses a site, and trigger a
 
         expect((responseMock.setHeader).callCount).to.be(1);
         expect(responseMock.setHeader.calledWith("Set-Cookie", ["visited cookie: about-us,history"])).to.be(true);
-   
     });
 
     it("onClientResponse should set visited and promo cookie in response header when no. of sections visited exceeds max limit", () => {
@@ -50,7 +48,6 @@ describe('Accrue values in a cookie as a visitor traverses a site, and trigger a
 
         expect((responseMock.setHeader).callCount).to.be(1);
         expect(responseMock.setHeader.calledWith("Set-Cookie", ["visited cookie: about-us,history,products,guarantee,pricing,sizing", "promo cookie: true"])).to.be(true);
-   
     });
 
 });

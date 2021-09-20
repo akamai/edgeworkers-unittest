@@ -17,7 +17,6 @@ describe('onClientRequest should modify forward path based on device type to poi
         expect(requestMock.route.called).to.be(true)
         expect((requestMock.route).callCount).to.be(1);
         expect(requestMock.route.calledWith({ path: '/mobile' + requestMock.path })).to.be(true);
-
     });
 
     it("onClientRequest should modify forward path to /tablet if device type is tablet", () => {
@@ -27,7 +26,6 @@ describe('onClientRequest should modify forward path based on device type to poi
         expect(requestMock.route.called).to.be(true)
         expect((requestMock.route).callCount).to.be(1);
         expect(requestMock.route.calledWith({ path: '/tablet' + requestMock.path })).to.be(true);
-
     });
 
     it("onClientRequest should not modify forward path", () => {
@@ -35,5 +33,4 @@ describe('onClientRequest should modify forward path based on device type to poi
         onClientRequest(requestMock);
         expect(requestMock.setVariable.callCount).to.be(0);
     });
-
 });

@@ -25,6 +25,4 @@ describe('Remove unwanted Cookies from being sent to the Origin', () => {
         expect(mock_Cookies_delete.calledWith("__atuv.")).to.be(true);
         expect(requestMock.setHeader.called).to.be(true)
     });
-
 });
-

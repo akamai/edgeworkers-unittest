@@ -17,7 +17,6 @@ describe('Remove incoming Cookies and Remove Set-Cookie for outgoing for Static 
         onClientRequest(requestMock);
         expect((requestMock.removeHeader).callCount).to.be(1);
         expect(requestMock.removeHeader.calledWith("Cookie")).to.be(true);
-   
     });
 
     it("onClientRequest should not remove Cookie for normal request", () => {
@@ -34,7 +33,6 @@ describe('Remove incoming Cookies and Remove Set-Cookie for outgoing for Static 
         onClientResponse(requestMock, responseMock);
         expect((responseMock.removeHeader).callCount).to.be(1);
         expect(responseMock.removeHeader.calledWith("Set-Cookie")).to.be(true);
- 
     });
 
     it("onClientResponse should not remove Set-Cookie for normal request", () => {
@@ -44,6 +42,4 @@ describe('Remove incoming Cookies and Remove Set-Cookie for outgoing for Static 
         onClientResponse(requestMock, responseMock);
         expect(responseMock.removeHeader.callCount).to.be(0);
     });
-
 });
-
