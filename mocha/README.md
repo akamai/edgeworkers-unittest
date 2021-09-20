@@ -1,6 +1,6 @@
-# Akamai EdgeWorkers Test Mocks
+# Mocha + Sinon mocks for Akamai EdgeWorkers
 
-This module a set of mocks of the [EdgeWorkers API](https://developer.akamai.com/api/web_performance/edgeworkers/v1.html) for use with Mocha+Sinon. In the Akamai EdgeWorkers execution environment, there are a set of modules and objects provided; since equivalent packages are not available in npm or node, Sinon mocks are provided here to be able to execute JS written against the EdgeWorkers API in Node.js for the purpose of testing.
+This module provides a set of mocks of the [EdgeWorkers API](https://developer.akamai.com/api/web_performance/edgeworkers/v1.html) for use with Mocha+Sinon. In the Akamai EdgeWorkers execution environment, there are a set of modules and objects provided; since equivalent packages are not available in npm or node, Sinon mocks are provided here to be able to execute JS written against the EdgeWorkers API in Node.js for the purpose of testing.
 
 This isn't a perfect solution, as:
 * Mocks provided here will not perfectly replicate the API.
@@ -174,4 +174,4 @@ For more information on EdgeWorkers and EdgeKV, refer to the following resources
 * [EdgeKV Getting Started Guide](https://learn.akamai.com/en-us/webhelp/edgeworkers/edgekv-getting-started-guide/)
 
 ## Reporting Issues
-If you experience any issues with these code samples, please raise a [GitHub issue](https://github.com/akamai/edgeworkers-examples/issues). Or create a pull request with fixes, suggestions, or your own contributed example.
+If you experience any issues with these code samples, please raise a [GitHub issue](https://github.com/akamai/edgeworkers-unittest/issues). Or create a pull request with fixes, suggestions, or your own contributed example.

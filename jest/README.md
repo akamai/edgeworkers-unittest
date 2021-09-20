@@ -1,6 +1,6 @@
-# Akamai EdgeWorkers Test Mocks
+# Jest mocks for Akamai EdgeWorkers
 
-This module a set of Jest mocks for the [EdgeWorkers API](https://developer.akamai.com/api/web_performance/edgeworkers/v1.html). In the Akamai EdgeWorkers execution environment, there are a set of modules and objects provided; since equivalent packages are not available in npm or node, Jest mocks are provided here to be able to execute JS written against the EdgeWorkers API in Node.js for the purpose of testing.
+This module provides a set of Jest mocks for the [EdgeWorkers API](https://developer.akamai.com/api/web_performance/edgeworkers/v1.html). In the Akamai EdgeWorkers execution environment, there are a set of modules and objects provided; since equivalent packages are not available in npm or node, Jest mocks are provided here to be able to execute JS written against the EdgeWorkers API in Node.js for the purpose of testing.
 
 These mocks are provided using [manual mocks](https://jestjs.io/docs/en/manual-mocks) and allow for user control of their functions.  
 
@@ -147,4 +147,4 @@ For more information on EdgeWorkers and EdgeKV, refer to the following resources
 * [EdgeKV Getting Started Guide](https://learn.akamai.com/en-us/webhelp/edgeworkers/edgekv-getting-started-guide/)
 
 ## Reporting Issues
-If you experience any issues with these code samples, please raise a [GitHub issue](https://github.com/akamai/edgeworkers-unittest). Or create a pull request with fixes, suggestions, or your own contributed example.
+If you experience any issues with these code samples, please raise a [GitHub issue](https://github.com/akamai/edgeworkers-unittest/issues). Or create a pull request with fixes, suggestions, or your own contributed example.

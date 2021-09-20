@@ -1,11 +1,11 @@
 # Akamai EdgeWorkers Test Mocks
 
-This repository provides a set of mocks for one of two testing frameworks:
+This repository provides a set of mocks for two testing frameworks:
 
-1. Jest
-2. Mocha+Sinon
+1. [Jest](https://github.com/bmatthew/edgeworkers-unittest/jest)
+2. [Mocha+Sinon](https://github.com/bmatthew/edgeworkers-unittest/mocha)
 
-More detail needs to be filled in here...
+More detail can be found in the above README pages.
 
 ## Contributing 
 
@@ -26,4 +26,4 @@ For more information on EdgeWorkers and EdgeKV, refer to the following resources
 * [EdgeKV Getting Started Guide](https://learn.akamai.com/en-us/webhelp/edgeworkers/edgekv-getting-started-guide/)
 
 ## Reporting Issues
-If you experience any issues with these code samples, please raise a [GitHub issue](https://github.com/akamai/edgeworkers-unittest). Or create a pull request with fixes, suggestions, or your own contributed example.
+If you experience any issues with these code samples, please raise a [GitHub issue](https://github.com/akamai/edgeworkers-unittest/issues). Or create a pull request with fixes, suggestions, or your own contributed example.
