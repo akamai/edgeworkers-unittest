@@ -2,8 +2,8 @@
 
 This repository provides a set of mocks for two testing frameworks:
 
-1. [Jest](https://github.com/bmatthew/edgeworkers-unittest/jest)
-2. [Mocha+Sinon](https://github.com/bmatthew/edgeworkers-unittest/mocha)
+1. [Jest](https://github.com/akamai/edgeworkers-unittest/tree/main/jest)
+2. [Mocha+Sinon](https://github.com/akamai/edgeworkers-unittest/tree/main/mocha)
 
 More detail can be found in the above README pages.
 
