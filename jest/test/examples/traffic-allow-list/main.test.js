@@ -1,4 +1,4 @@
-import {onClientRequest}from "work-with-request-properties/traffic-allow-list/main";
+import {onClientRequest} from "work-with-request-properties/traffic-allow-list/main";
 import Request from "request";
 
 describe('onClientRequest should modify allow or deny message depending on country of end user', () => {
