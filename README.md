@@ -11,7 +11,6 @@ More detail can be found in the above README pages.
 
 When contributing to the repository please describe the change or examples in detail in the pull request.
 
-### contributing examples
 - Create a pull request.
 - Once the pull request is created, If the contributing user has not previously signed a Contributor License Agreement (CLA), they must complete the CLA signing steps as indicated in the pull request. The CLA signature will be stored in an Akamai private repository in Github.
 - A code review will be performed by multiple Akamai members of the edgeworkers-unittest repository. The code review must receive at least 2 approvals.
