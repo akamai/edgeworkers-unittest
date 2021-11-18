@@ -3,4 +3,5 @@
 	url = https://github.com/akamai/edgeworkers-examples/
 [submodule "mocha/src"]
 	path = mocha/src
-	url = https://github.com/akamai/edgeworkers-examples/
+	url = https://github.com/bmatthew/edgeworkers-examples/
+	branch = mocha-framework
