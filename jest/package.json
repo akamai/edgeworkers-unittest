@@ -1,6 +1,6 @@
 {
   "name": "edgeworkers-jest-mocks",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "Akamai EdgeWorkers Jest mocks",
   "dependencies": {
     "@babel/core": "^7.17.8",
@@ -26,7 +26,8 @@
     "moduleDirectories": [
       "node_modules",
       "./",
-      "../../../src/edgeworkers/examples"
+      "../../../src/edgeworkers/examples",
+      "../../../edgeworkers"
     ]
   },
   "eslintConfig": {
