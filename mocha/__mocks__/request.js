@@ -13,6 +13,8 @@ export const mockGetHeaders = sinon.stub();
 export const mockGetVariable = sinon.stub();
 export const mockSetVariable = sinon.stub();
 export const mockRoute = sinon.stub();
+export const mockJson = sinon.stub();
+export const mockText = sinon.stub();
 
 export default class Request {
   constructor() {
@@ -35,5 +37,7 @@ export default class Request {
     this.getVariable = mockGetVariable;
     this.setVariable = mockSetVariable;
     this.route = mockRoute;
+    this.json = mockJson;
+    this.text = mockText;
   }
 }

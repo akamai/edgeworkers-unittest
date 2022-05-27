@@ -11,6 +11,8 @@ export const mockGetHeaders = jest.fn();
 export const mockGetVariable = jest.fn();
 export const mockSetVariable = jest.fn();
 export const mockRoute = jest.fn();
+export const mockJson = jest.fn();
+export const mockText = jest.fn();
 
 const Request = jest.fn().mockImplementation(() => {
   return {
@@ -32,7 +34,9 @@ const Request = jest.fn().mockImplementation(() => {
     getHeaders: mockGetHeaders,
     getVariable: mockGetVariable,
     setVariable: mockSetVariable,
-    route: mockRoute
+    route: mockRoute,
+    json: mockJson,
+    text: mockText
     };
 });
 
