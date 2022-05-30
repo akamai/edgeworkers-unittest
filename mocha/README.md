@@ -4,6 +4,7 @@ This module provides a set of mocks of the [EdgeWorkers API](https://developer.a
 
 This isn't a perfect solution, as:
 * Mocks provided here will not perfectly replicate the API.
+* The APIs provided may not be available in some event handlers, refer to the [API docs](https://techdocs.akamai.com/edgeworkers/reference/api) to see what is available.
 * Tests are executed in Node; while both Node and EdgeWorkers run on top of V8, some features are explicitly disabled for EdgeWorkers, there are execution limits for EdgeWorkers (time and memory), and developers need to be careful not to pull in Node APIs.
 
 [Additional documentation for EdgeWorkers](https://techdocs.akamai.com/edgeworkers/docs) can be found in Akamai TechDocs.
