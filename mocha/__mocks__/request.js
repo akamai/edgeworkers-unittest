@@ -3,6 +3,7 @@ const sinon = require("sinon");
 import Device from './device';
 import UserLocation from './userLocation';
 import CacheKey from './cacheKey';
+import { ReadableStream } from './streams'
 
 export const mockRespondWith = sinon.stub();
 export const mockGetHeader = sinon.stub();
@@ -39,5 +40,6 @@ export default class Request {
     this.route = mockRoute;
     this.json = mockJson;
     this.text = mockText;
+    this.body = new ReadableStream();
   }
 }
