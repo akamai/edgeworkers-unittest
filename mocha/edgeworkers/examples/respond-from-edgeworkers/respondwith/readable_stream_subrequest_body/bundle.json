@@ -1,0 +1,4 @@
+{
+    "edgeworker-version": "3.3",
+    "description" : "ReadableStream in subrequest body"
+}
