@@ -1,0 +1,4 @@
+{
+    "edgeworker-version": "0.1",
+    "description" : "Convert a string into a Uint8Array array of bytes."
+  }
