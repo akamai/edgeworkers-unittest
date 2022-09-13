@@ -1,6 +1,7 @@
 import Device from './device';
 import UserLocation from './userLocation';
 import CacheKey from './cacheKey';
+import { ReadableStream } from './streams'
 
 export const mockRespondWith = jest.fn();
 export const mockGetHeader = jest.fn();
@@ -36,7 +37,8 @@ const Request = jest.fn().mockImplementation(() => {
     setVariable: mockSetVariable,
     route: mockRoute,
     json: mockJson,
-    text: mockText
+    text: mockText,
+    body: new ReadableStream()
     };
 });
 
