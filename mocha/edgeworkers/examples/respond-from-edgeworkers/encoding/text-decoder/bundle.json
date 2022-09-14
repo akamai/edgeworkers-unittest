@@ -1,0 +1,4 @@
+{
+    "edgeworker-version": "0.1",
+    "description" : "Decode a Uint8Array array of bytes into the original string."
+  }
