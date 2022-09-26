@@ -1,5 +1,5 @@
 import { crypto, pem2ab } from "../../../__mocks__/crypto";
-  
+
 export function onClientRequest(request) {
   //verifying getRandomValues()
   crypto.getRandomValues(new Uint8Array(6));
@@ -9,24 +9,99 @@ export function onClientRequest(request) {
 
   //verifying importKey()
   let raw_key = new Uint8Array([
-    93, 210, 19, 203, 234, 199, 254, 16, 118, 129, 214, 61, 229, 117, 91, 33,
+    93,
+    210,
+    19,
+    203,
+    234,
+    199,
+    254,
+    16,
+    118,
+    129,
+    214,
+    61,
+    229,
+    117,
+    91,
+    33,
   ]);
   let iv = new Uint8Array([
-    237, 234, 45, 119, 168, 16, 178, 26, 14, 182, 253, 39, 79, 181, 180, 219,
+    237,
+    234,
+    45,
+    119,
+    168,
+    16,
+    178,
+    26,
+    14,
+    182,
+    253,
+    39,
+    79,
+    181,
+    180,
+    219,
   ]);
-  crypto.subtle.importKey(
-    "raw",
-    raw_key,
-    { name: "AES-CBC", iv: iv },
-    false,
-    ["encrypt", "decrypt"]
-  );
+
+  crypto.subtle.importKey("raw", raw_key, { name: "AES-CBC", iv: iv }, false, [
+    "encrypt",
+    "decrypt",
+  ]);
 
   //verifying encrypt()
   let input_data_array = new Uint8Array([
-    44, 237, 221, 235, 17, 155, 115, 79, 8, 211, 94, 216, 92, 183, 9, 106, 15,
-    210, 0, 52, 92, 163, 2, 222, 130, 70, 80, 132, 80, 243, 28, 110, 25, 18, 20,
-    98, 63, 51, 5, 136, 72, 206, 212, 46, 255, 220, 131, 188, 133, 109,
+    44,
+    237,
+    221,
+    235,
+    17,
+    155,
+    115,
+    79,
+    8,
+    211,
+    94,
+    216,
+    92,
+    183,
+    9,
+    106,
+    15,
+    210,
+    0,
+    52,
+    92,
+    163,
+    2,
+    222,
+    130,
+    70,
+    80,
+    132,
+    80,
+    243,
+    28,
+    110,
+    25,
+    18,
+    20,
+    98,
+    63,
+    51,
+    5,
+    136,
+    72,
+    206,
+    212,
+    46,
+    255,
+    220,
+    131,
+    188,
+    133,
+    109,
   ]);
   crypto.subtle.encrypt(
     { name: "AES-CBC", iv: iv },
