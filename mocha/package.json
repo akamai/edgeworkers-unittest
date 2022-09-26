@@ -1,6 +1,6 @@
 {
   "name": "edgeworkers-mocha-mocks",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "Akamai EdgeWorkers Mocha mocks",
   "dependencies": {
     "@babel/core": "^7.17.8",
