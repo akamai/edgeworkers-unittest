@@ -1,4 +1,0 @@
-{
-    "edgeworker-version": "0.1",
-    "description" : "Examples of atob, btoa, baseX.decode usage."
-  }
