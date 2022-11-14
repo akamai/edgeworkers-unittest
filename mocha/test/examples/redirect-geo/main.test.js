@@ -11,6 +11,7 @@ describe('onClientRequest', () => {
 
     it("should call respondWith", () => {
         let requestMock = new Request();
+        requestMock.userLocation.country = "CA";
         requestMock.host = "www.example.com";
         onClientRequest(requestMock);
         expect(requestMock.respondWith.called).to.be(true)
