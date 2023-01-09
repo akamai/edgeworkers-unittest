@@ -1,6 +1,6 @@
 {
   "name": "edgeworkers-jest-mocks",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "description": "Akamai EdgeWorkers Jest mocks",
   "dependencies": {
     "@babel/core": "^7.17.8",
