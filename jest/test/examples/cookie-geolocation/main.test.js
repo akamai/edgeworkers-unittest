@@ -12,6 +12,10 @@ describe('Add a geoloation data to a cookie in the HTTP response.', () => {
   
     test("onClientResponse should set location cookie in the response header when salesRegion is empty", () => {
         let requestMock = new Request();
+        requestMock.userLocation.country = 'CA';
+        requestMock.userLocation.region = 'NS';
+        requestMock.userLocation.city = 'HALIFAX';
+
         let responseMock = new Response();
         mock_SetCookie_toHeader.mockReturnValue("location=CA+NS+HALIFAX; Max-Age=86400; Path=/");
 
