@@ -14,6 +14,7 @@ export const mockSetVariable = jest.fn();
 export const mockRoute = jest.fn();
 export const mockJson = jest.fn();
 export const mockText = jest.fn();
+export const mockArrayBuffer = jest.fn();
 
 const Request = jest.fn().mockImplementation(() => {
   return {
@@ -38,6 +39,7 @@ const Request = jest.fn().mockImplementation(() => {
     route: mockRoute,
     json: mockJson,
     text: mockText,
+    arrayBuffer: mockArrayBuffer,
     body: new ReadableStream()
     };
 });
