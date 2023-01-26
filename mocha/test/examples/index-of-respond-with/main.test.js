@@ -1,7 +1,7 @@
 import {
     onOriginRequest,
     onOriginResponse
-} from "../../../src/edgeworkers/examples/respond-from-edgeworkers/respondwith/index-of/main";
+} from "../../../edgeworkers/examples/respond-from-edgeworkers/respondwith/index-of/main";
 import Request from "request";
 import Response from "response";
 

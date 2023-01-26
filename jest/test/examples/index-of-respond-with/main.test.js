@@ -3,7 +3,7 @@ import Response from "response";
 import {
   onOriginRequest,
   onOriginResponse
-} from "../../../src/edgeworkers/examples/respond-from-edgeworkers/respondwith/index-of/main";
+} from "../../../edgeworkers/examples/respond-from-edgeworkers/respondwith/index-of/main";
 
 describe("EdgeWorker that will respond with a JSON based on query passed", () => {
   beforeEach(() => {
