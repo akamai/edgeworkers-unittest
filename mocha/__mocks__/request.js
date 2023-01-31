@@ -16,6 +16,7 @@ export const mockSetVariable = sinon.stub();
 export const mockRoute = sinon.stub();
 export const mockJson = sinon.stub();
 export const mockText = sinon.stub();
+export const mockArrayBuffer = sinon.stub();
 
 export default class Request {
   constructor() {
@@ -40,6 +41,7 @@ export default class Request {
     this.route = mockRoute;
     this.json = mockJson;
     this.text = mockText;
+    this.arrayBuffer = mockArrayBuffer;
     this.body = new ReadableStream();
   }
 }

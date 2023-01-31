@@ -1,4 +1,4 @@
-import {onClientRequest} from "respond-from-edgeworkers/respondWith/conference-details/main";
+import {onClientRequest} from "respond-from-edgeworkers/respondwith/conference-details/main";
 import Request from "request";
 
 describe('Conference Attendance Code API call that returns the meeting details of a conference as HTML if the user provides the correct code', () => {
