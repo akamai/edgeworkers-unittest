@@ -27,16 +27,17 @@ export const mockReplaceChildren = sinon.stub();
 export const mockReplaceWith = sinon.stub();
 export const mockSetAttribute = sinon.stub();
 
-const onElement = () => {
-  this.after = mockAfter;
-  this.append = mockAppend;
-  this.before = mockBefore;
-  this.getAttribute = mockGetAttribute;
-  this.prepend = mockPrepend;
-  this.removeAttribute = mockRemoveAttribute;
-  this.replaceChildren = mockReplaceChildren;
-  this.replaceWith = mockReplaceWith;
-  this.setAttribute = mockSetAttribute;
+export class onElement {
+  constructor() {
+    this.append = mockAppend;
+    this.before = mockBefore;
+    this.getAttribute = mockGetAttribute;
+    this.prepend = mockPrepend;
+    this.removeAttribute = mockRemoveAttribute;
+    this.replaceChildren = mockReplaceChildren;
+    this.replaceWith = mockReplaceWith;
+    this.setAttribute = mockSetAttribute;
+  }
 }
 
 export class HtmlRewritingStream {
