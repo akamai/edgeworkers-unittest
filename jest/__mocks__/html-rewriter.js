@@ -2,7 +2,7 @@ export const mockHtmlRewritingStream = jest.fn();
 export const mockOnElement = jest.fn().mockImplementation(() => {
   return {
     selector: String,
-    handler: onElement()
+    handler: Element()
   };
 });
 export const mockReadableStream = jest.fn().mockReturnThis();
@@ -18,7 +18,7 @@ export const mockReplaceChildren = jest.fn();
 export const mockReplaceWith = jest.fn();
 export const mockSetAttribute = jest.fn();
 
-export const onElement = jest.fn().mockImplementation(() => {
+export const Element = jest.fn().mockImplementation(() => {
   return {
     after: mockAfter,
     append: mockAppend,

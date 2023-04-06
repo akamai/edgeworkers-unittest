@@ -4,7 +4,7 @@ export const mockHtmlRewritingStream = sinon.stub();
 export const mockOnElement = sinon.stub().callsFake(() => {
   return {
     selector: String,
-    handler: onElement()
+    handler: Element()
   };
 });
 export const mockReadableStream = sinon.stub().callsFake(() => {
@@ -27,7 +27,7 @@ export const mockReplaceChildren = sinon.stub();
 export const mockReplaceWith = sinon.stub();
 export const mockSetAttribute = sinon.stub();
 
-export class onElement {
+export class Element {
   constructor() {
     this.append = mockAppend;
     this.before = mockBefore;

@@ -6,7 +6,7 @@ import { handler as removeHandler } from "edgeworkers/examples/html-rewriter/rem
 import { handler as replaceHandler } from "edgeworkers/examples/html-rewriter/replace-children/main";
 import { createResponse } from "create-response";
 import { httpRequest, HttpResponse } from "http-request";
-import { onElement } from "../../../__mocks__/html-rewriter";
+import { Element } from "../../../__mocks__/html-rewriter";
 
 describe("EdgeWorker that consumes an HTML document and rewrites it", () => {
   beforeEach(() => {
@@ -42,7 +42,7 @@ describe("EdgeWorker that consumes an HTML document and rewrites it", () => {
   });
 
   test("responseProvider should retrieve the body of the request and remove the attribute successfully", async () => {
-    let mockElement = new onElement();
+    let mockElement = new Element();
     mockElement.getAttribute.mockReturnValue("value");
 
     removeHandler(mockElement);
@@ -51,7 +51,7 @@ describe("EdgeWorker that consumes an HTML document and rewrites it", () => {
   });
 
   test("responseProvider should retrieve the body of the request but fails to get the attribute", async () => {
-    let mockElement = new onElement();
+    let mockElement = new Element();
     mockElement.getAttribute.mockReturnValue(undefined);
 
     removeHandler(mockElement);
@@ -88,7 +88,7 @@ describe("EdgeWorker that consumes an HTML document and rewrites it", () => {
   });
 
   test("responseProvider should retrieve the body of the request and successfully replace the children in it", async () => {
-    let mockElement = new onElement();
+    let mockElement = new Element();
     mockElement.getAttribute.mockReturnValue(undefined);
 
     replaceHandler(mockElement);
