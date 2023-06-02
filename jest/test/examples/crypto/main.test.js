@@ -7,11 +7,12 @@ import {
   mock_crypto_subtle_encrypt,
   mock_crypto_subtle_decrypt,
   mock_pem2ab,
-  mock_crypto_subtle_verify,
+  mock_crypto_subtle_sign,
+  mock_crypto_subtle_verify
 } from "../../../__mocks__/crypto";
 
 describe("Crypto EW", () => {
-  test("onClientRequest getRandomValues(), digest(), importKey(), encrypt(), decrypt(), pem2ab(), verify()", () => {
+  test("onClientRequest getRandomValues(), digest(), importKey(), encrypt(), decrypt(), pem2ab(), sign(), verify()", () => {
     let requestMock = new Request();
     onClientRequest(requestMock);
 
@@ -40,7 +41,7 @@ describe("Crypto EW", () => {
       229,
       117,
       91,
-      33,
+      33
     ]);
     let iv = new Uint8Array([
       237,
@@ -58,7 +59,7 @@ describe("Crypto EW", () => {
       79,
       181,
       180,
-      219,
+      219
     ]);
     expect(mock_crypto_subtle_importKey).toHaveBeenCalledTimes(2);
     expect(mock_crypto_subtle_importKey).toHaveBeenCalledWith(
@@ -119,7 +120,7 @@ describe("Crypto EW", () => {
       131,
       188,
       133,
-      109,
+      109
     ]);
 
     expect(mock_crypto_subtle_encrypt).toHaveBeenCalledTimes(1);
@@ -149,11 +150,19 @@ describe("Crypto EW", () => {
     expect(mock_pem2ab).toHaveBeenCalledTimes(1);
     expect(mock_pem2ab).toHaveBeenCalledWith(pemEncodedKey);
 
+    expect(mock_crypto_subtle_sign).toHaveBeenCalledTimes(1);
+    expect(mock_crypto_subtle_sign).toHaveBeenCalledWith(
+      "RSASSA-PKCS1-v1_5",
+      "crypto_key",
+      "data"
+    );
+
     expect(mock_crypto_subtle_verify).toHaveBeenCalledTimes(1);
-    expect(mock_crypto_subtle_verify).toHaveBeenCalledWith({ name: "RSASSA-PKCS1-v1_5" },
-    "crypto_key",
-    "base64url_decode_jwsSignature)",
-    "encoded_jwsSigningInput"
-  );
+    expect(mock_crypto_subtle_verify).toHaveBeenCalledWith(
+      { name: "RSASSA-PKCS1-v1_5" },
+      "crypto_key",
+      "base64url_decode_jwsSignature)",
+      "encoded_jwsSigningInput"
+    );
   });
 });

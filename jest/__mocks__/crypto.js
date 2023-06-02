@@ -3,6 +3,7 @@ export const mock_crypto_subtle_digest = jest.fn();
 export const mock_crypto_subtle_importKey = jest.fn();
 export const mock_crypto_subtle_encrypt = jest.fn();
 export const mock_crypto_subtle_decrypt = jest.fn();
+export const mock_crypto_subtle_sign = jest.fn();
 export const mock_crypto_subtle_verify = jest.fn();
 
 const Subtle = jest.fn().mockImplementation(() => {
@@ -11,6 +12,7 @@ const Subtle = jest.fn().mockImplementation(() => {
         importKey: mock_crypto_subtle_importKey,
         encrypt: mock_crypto_subtle_encrypt,
         decrypt: mock_crypto_subtle_decrypt,
+        sign: mock_crypto_subtle_sign,
         verify: mock_crypto_subtle_verify
     };
 });

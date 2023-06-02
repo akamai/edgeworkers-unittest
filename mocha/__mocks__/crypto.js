@@ -5,6 +5,7 @@ export const mock_crypto_subtle_digest = sinon.stub();
 export const mock_crypto_subtle_importKey = sinon.stub();
 export const mock_crypto_subtle_encrypt = sinon.stub();
 export const mock_crypto_subtle_decrypt = sinon.stub();
+export const mock_crypto_subtle_sign = sinon.stub();
 export const mock_crypto_subtle_verify = sinon.stub();
 
 class Subtle {
@@ -13,6 +14,7 @@ class Subtle {
     this.importKey = mock_crypto_subtle_importKey;
     this.encrypt = mock_crypto_subtle_encrypt;
     this.decrypt = mock_crypto_subtle_decrypt;
+    this.sign = mock_crypto_subtle_sign;
     this.verify = mock_crypto_subtle_verify;
   }
 }

@@ -61,6 +61,12 @@ export function onClientRequest(request) {
     ["verify"]
   );
 
+  crypto.subtle.sign(
+      { name: "RSASSA-PKCS1-v1_5" },
+      "crypto_key",
+      "data"
+  );
+
   //verifying verify()
   crypto.subtle.verify(
     { name: "RSASSA-PKCS1-v1_5" },
