@@ -76,7 +76,7 @@ We also need to tell Mocha to run using Babel in a `.mocharc.yaml` file (create 
   ```
   require:
     - '@babel/register'
-  extension: ['ts', 'tsx', 'js']
+  extension: ['ts', 'tsx', 'js', 'mjs']
   ```
 
 ### Step 5:
