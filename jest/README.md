@@ -110,7 +110,7 @@ describe('Simple Example', () => {
 }); 
 ```
 
-More example tests are available [under the test/examples folder](https://github.com/akamai/edgeworkers-unittest/tree/main/test/examples). If needed, a [good overview of using Jest is available from Flaviocopes](https://flaviocopes.com/jest/).
+More example tests are available [under the test/examples folder]([https://github.com/akamai/edgeworkers-unittest/tree/main/test/examples](https://github.com/akamai/edgeworkers-unittest/tree/main/jest/test/examples)). If needed, a [good overview of using Jest is available from Flaviocopes](https://flaviocopes.com/jest/).
 
 ### Step 6:
 
