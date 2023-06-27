@@ -119,7 +119,7 @@ describe('Simple example ', () => {
 }); 
 ```
 
-More example tests are available [under the test/examples folder](https://github.com/akamai/edgeworkers-unittest/tree/main/test/examples).
+More example tests are available [under the test/examples folder]([https://github.com/akamai/edgeworkers-unittest/tree/main/test/example](https://github.com/akamai/edgeworkers-unittest/tree/main/mocha/test/examples)s).
 
 ### Step 6:
 
