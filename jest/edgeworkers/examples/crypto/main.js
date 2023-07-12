@@ -1,13 +1,13 @@
 import { crypto, pem2ab } from "../../../__mocks__/crypto";
 
 export function onClientRequest(request) {
-  //verifying getRandomValues()
+  // Verifying getRandomValues()
   crypto.getRandomValues(new Uint8Array(6));
 
-  //verifying digest()
+  // Verifying digest()
   crypto.subtle.digest("SHA-1", new Int32Array(new ArrayBuffer(8)));
 
-  //verifying importKey()
+  // Verifying importKey()
   let raw_key = new Uint8Array([
     93,
     210,
@@ -24,7 +24,7 @@ export function onClientRequest(request) {
     229,
     117,
     91,
-    33,
+    33
   ]);
   let iv = new Uint8Array([
     237,
@@ -42,15 +42,15 @@ export function onClientRequest(request) {
     79,
     181,
     180,
-    219,
+    219
   ]);
 
   crypto.subtle.importKey("raw", raw_key, { name: "AES-CBC", iv: iv }, false, [
     "encrypt",
-    "decrypt",
+    "decrypt"
   ]);
 
-  //verifying encrypt()
+  // Verifying encrypt()
   let input_data_array = new Uint8Array([
     44,
     237,
@@ -101,7 +101,7 @@ export function onClientRequest(request) {
     131,
     188,
     133,
-    109,
+    109
   ]);
   crypto.subtle.encrypt(
     { name: "AES-CBC", iv: iv },
@@ -109,15 +109,15 @@ export function onClientRequest(request) {
     input_data_array
   );
 
-  //verifying decrypt()
+  // Verifying decrypt()
   crypto.subtle.decrypt(
     { name: "AES-CBC", iv: iv },
     "imported_key",
     "encrypted_data"
   );
 
-  //verifying pem2ab()
-  //importKey() being called as a part of verification.
+  // Verifying pem2ab()
+  // importKey() being called as a part of verification.
   const pemEncodedKey = `-----BEGIN PUBLIC KEY-----
         MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAu1SU1LfVLPHCozMxH2Mo
         4lgOEePzNm0tRgeLezV6ffAt0gunVTLw7onLRnrq0/IzW7yWR7QkrmBL7jTKEn5u
@@ -136,7 +136,9 @@ export function onClientRequest(request) {
     ["verify"]
   );
 
-  //verifying verify()
+  crypto.subtle.sign("RSASSA-PKCS1-v1_5", "crypto_key", "data");
+
+  // Verifying verify()
   crypto.subtle.verify(
     { name: "RSASSA-PKCS1-v1_5" },
     "crypto_key",

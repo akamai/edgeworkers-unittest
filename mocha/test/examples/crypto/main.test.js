@@ -7,6 +7,7 @@ import {
   mock_crypto_subtle_encrypt,
   mock_crypto_subtle_decrypt,
   mock_pem2ab,
+  mock_crypto_subtle_sign,
   mock_crypto_subtle_verify,
 } from "../../../__mocks__/crypto";
 
@@ -89,6 +90,15 @@ describe("Crypto EW", () => {
 
     expect(mock_pem2ab.callCount).to.be(1);
     expect(mock_pem2ab.calledWith(pemEncodedKey)).to.be(true);
+
+    expect(mock_crypto_subtle_sign.callCount).to.be(1);
+    expect(
+        mock_crypto_subtle_sign.calledWith(
+            { name: "RSASSA-PKCS1-v1_5" },
+            "crypto_key",
+            "data"
+        )
+    ).to.be(true);
 
     expect(mock_crypto_subtle_verify.callCount).to.be(1);
     expect(
