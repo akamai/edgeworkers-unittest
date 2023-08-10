@@ -9,7 +9,7 @@ describe("demonstrates how an EdgeWorker can be used to see if respondWith() has
     sinon.reset();
   });
 
-  it("Simple onClientResponse call to check that wasTerminated was called", () => {
+  it("Simple onClientResponse call to check that wasTerminated() was called", () => {
     let requestMock = new Request();
     requestMock.mockWasTerminated = true;
 
@@ -19,7 +19,7 @@ describe("demonstrates how an EdgeWorker can be used to see if respondWith() has
     expect(requestMock.mockWasTerminated).to.be.true;
   });
 
-  it("Simple onClientResponse call to check that wasTerminated was not called", () => {
+  it("Simple onClientResponse call to check that wasTerminated() was not called", () => {
     let requestMock = new Request();
     requestMock.mockWasTerminated = false;
 

@@ -6,7 +6,7 @@ describe("demonstrates how an EdgeWorker can be used to see if respondWith() has
     jest.clearAllMocks();
   });
 
-  test("Simple onClientResponse call to check that wasTerminated was called", () => {
+  test("Simple onClientResponse call to check that wasTerminated() was called", () => {
     let requestMock = new Request();
     requestMock.mockWasTerminated = true;
 
@@ -16,7 +16,7 @@ describe("demonstrates how an EdgeWorker can be used to see if respondWith() has
     expect(requestMock.mockWasTerminated).toBeTruthy();
   });
 
-  test("Simple onClientResponse call to check that wasTerminated was not called", () => {
+  test("Simple onClientResponse call to check that wasTerminated() was not called", () => {
     let requestMock = new Request();
     requestMock.mockWasTerminated = false;
 
