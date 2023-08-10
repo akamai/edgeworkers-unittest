@@ -1,0 +1,4 @@
+{
+    "edgeworker-version": "0.1",
+    "description" : "Returns true if respondWith() has been called in the current handler and false otherwise."
+  }
