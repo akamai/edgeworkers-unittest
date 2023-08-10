@@ -6,6 +6,7 @@ import CacheKey from './cacheKey';
 import { ReadableStream } from './streams'
 
 export const mockRespondWith = sinon.stub();
+export const mockWasTerminated = sinon.stub();
 export const mockGetHeader = sinon.stub();
 export const mockSetHeader = sinon.stub();
 export const mockAddHeader = sinon.stub();
@@ -31,6 +32,7 @@ export default class Request {
     this.cpCode = 1191398;
     this.cacheKey = new CacheKey();
     this.respondWith = mockRespondWith;
+    this.wasTerminated = mockWasTerminated;
     this.getHeader = mockGetHeader;
     this.setHeader = mockSetHeader;
     this.addHeader = mockAddHeader;

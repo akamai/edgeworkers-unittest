@@ -4,6 +4,7 @@ import CacheKey from './cacheKey';
 import { ReadableStream } from './streams'
 
 export const mockRespondWith = jest.fn();
+export const mockWasTerminated = jest.fn();
 export const mockGetHeader = jest.fn();
 export const mockSetHeader = jest.fn();
 export const mockAddHeader = jest.fn();
@@ -29,6 +30,7 @@ const Request = jest.fn().mockImplementation(() => {
     cpCode: 1191398,
     cacheKey: new CacheKey(),
     respondWith: mockRespondWith,
+    wasTerminated: mockWasTerminated,
     getHeader: mockGetHeader,
     setHeader: mockSetHeader,
     addHeader: mockAddHeader,
@@ -41,7 +43,7 @@ const Request = jest.fn().mockImplementation(() => {
     text: mockText,
     arrayBuffer: mockArrayBuffer,
     body: new ReadableStream()
-    };
+  };
 });
 
 export default Request;
