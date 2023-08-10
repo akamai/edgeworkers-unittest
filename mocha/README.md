@@ -39,10 +39,10 @@ npm install --save-dev edgeworkers-mocha-mocks
 ### Step 3:
 
 #### setup package.json
-Make sure you set the test script defined in `package.json` to call Mocha, optionally with the `recursive` parameter to look for test files nested in the `test` directory and with `--require ts-node/register` to support running TypeScript tests.
+Make sure you set the test script defined in `package.json` to call Mocha, optionally with `--require ts-node/register` to support running TypeScript tests.
   ```
   "scripts": {
-    "test": "mocha --recursive --require ts-node/register"
+    "test": "mocha --require ts-node/register"
   },
   ```
 
@@ -71,13 +71,20 @@ Babel is included as a dependency to fill in for the newer version of EcmaScript
 ```
 The inclusion `preset-typescript` is optional and only needed if you are using TypeScript.
 
-We also need to tell Mocha to run using Babel in a `.mocharc.yaml` file (create a yaml file and name it as `.mocharc.yaml` if it does not exists):
-* Configure Mocha inside `.mocharc.yaml` to call Babel and optionally to call TypeScript test extensions:
+We also need to tell Mocha to run using Babel. To do this we will create two files; the first is a `.mocharc.yaml` file (create a yaml file and name it as `.mocharc.yaml` if it does not exists):
   ```
   require:
-    - '@babel/register'
-  extension: ['ts', 'tsx', 'js']
+    - 'init.js'
+  extension: ['ts', 'tsx', 'js', 'mjs']
+  recursive: true
   ```
+
+Next create `init.js` and include the following content which pulls in Babel and tells it to run on imported modules:
+```
+  require("@babel/register") ({
+    ignore: [],
+  });
+```
 
 ### Step 5:
 
@@ -112,7 +119,7 @@ describe('Simple example ', () => {
 }); 
 ```
 
-More example tests are available [under the test/examples folder](https://github.com/akamai/edgeworkers-unittest/tree/main/test/examples).
+More example tests are available [under the test/examples folder]([https://github.com/akamai/edgeworkers-unittest/tree/main/test/example](https://github.com/akamai/edgeworkers-unittest/tree/main/mocha/test/examples)s).
 
 ### Step 6:
 
