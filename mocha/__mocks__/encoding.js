@@ -22,26 +22,32 @@ export const atob = sinon.stub();
 export const btoa = sinon.stub();
 
 export const mock_base64_decode = sinon.stub();
+export const mock_base64_encode = sinon.stub();
 class Base64 {
     constructor() {
         this.decode = mock_base64_decode;
+        this.encode = mock_base64_encode;
     }
 }
 export const base64 = new Base64();
 
 
 export const mock_base64url_decode = sinon.stub();
+export const mock_base64url_encode = sinon.stub();
 class Base64url {
     constructor() {
         this.decode =  mock_base64url_decode;
+        this.encode =  mock_base64url_encode;
     }
 }
 export const base64url = new Base64url();
 
 export const mock_base16_decode = sinon.stub();
+export const mock_base16_encode = sinon.stub();
 class Base16 {
     constructor() {
         this.decode =  mock_base16_decode;
+        this.encode =  mock_base16_encode;
     }
 }
 export const base16 = new Base16();
