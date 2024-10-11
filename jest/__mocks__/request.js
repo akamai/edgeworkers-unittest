@@ -28,6 +28,7 @@ const Request = jest.fn().mockImplementation(() => {
     userLocation: new UserLocation(),
     device: new Device(),
     cpCode: 1191398,
+    clientIp: "1.1.1.1",
     cacheKey: new CacheKey(),
     respondWith: mockRespondWith,
     wasTerminated: mockWasTerminated,

@@ -30,6 +30,7 @@ export default class Request {
     this.userLocation = new UserLocation();
     this.device = new Device();
     this.cpCode = 1191398;
+    this.clientIp = "1.1.1.1";
     this.cacheKey = new CacheKey();
     this.respondWith = mockRespondWith;
     this.wasTerminated = mockWasTerminated;
