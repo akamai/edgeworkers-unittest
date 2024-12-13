@@ -2,6 +2,7 @@ export const mockGetHeader = jest.fn();
 export const mockSetHeader = jest.fn();
 export const mockAddHeader = jest.fn();
 export const mockRemoveHeader= jest.fn();
+export const mockGetHeaders = jest.fn();
 
 const Response = jest.fn().mockImplementation(() => {
   return {
@@ -10,6 +11,7 @@ const Response = jest.fn().mockImplementation(() => {
     setHeader: mockSetHeader,
     addHeader: mockAddHeader,
     removeHeader: mockRemoveHeader,
+    getHeaders: mockGetHeaders,
     };
 });
 

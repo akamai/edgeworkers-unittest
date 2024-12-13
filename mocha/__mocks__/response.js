@@ -4,6 +4,7 @@ export const mockGetHeader = sinon.stub();
 export const mockSetHeader = sinon.stub();
 export const mockAddHeader = sinon.stub();
 export const mockRemoveHeader = sinon.stub();
+export const mockGetHeaders = sinon.stub();
 
 export default class Response {
   // default to dummy data and stubs
@@ -13,5 +14,6 @@ export default class Response {
     this.setHeader = mockSetHeader;
     this.addHeader = mockAddHeader;
     this.removeHeader = mockRemoveHeader;
+    this.getHeaders = mockGetHeaders;
   }
 }
