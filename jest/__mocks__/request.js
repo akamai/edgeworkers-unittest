@@ -1,7 +1,8 @@
 import Device from './device';
 import UserLocation from './userLocation';
 import CacheKey from './cacheKey';
-import { ReadableStream } from './streams'
+import { ReadableStream } from './streams';
+import BotScore from "./botScore";
 
 export const mockRespondWith = jest.fn();
 export const mockWasTerminated = jest.fn();
@@ -43,7 +44,8 @@ const Request = jest.fn().mockImplementation(() => {
     json: mockJson,
     text: mockText,
     arrayBuffer: mockArrayBuffer,
-    body: new ReadableStream()
+    body: new ReadableStream(),
+    botScore: new BotScore()
   };
 });
 

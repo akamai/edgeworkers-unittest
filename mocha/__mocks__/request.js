@@ -3,7 +3,8 @@ const sinon = require("sinon");
 import Device from './device';
 import UserLocation from './userLocation';
 import CacheKey from './cacheKey';
-import { ReadableStream } from './streams'
+import { ReadableStream } from './streams';
+import BotScore from "./botScore";
 
 export const mockRespondWith = sinon.stub();
 export const mockWasTerminated = sinon.stub();
@@ -46,5 +47,6 @@ export default class Request {
     this.text = mockText;
     this.arrayBuffer = mockArrayBuffer;
     this.body = new ReadableStream();
+    this.botScore = new BotScore();
   }
 }
