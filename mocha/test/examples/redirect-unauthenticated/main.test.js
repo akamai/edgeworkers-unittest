@@ -1,4 +1,4 @@
-import {onClientRequest} from "../../../src/edgeworkers/examples/work-with-redirects/redirect-unauthenticated/main";
+import {onClientRequest} from "../../../src/edgecompute/examples/traffic-routing/redirect-unauthenticated/main";
 import Request from "request";
 import {Cookies, mock_Cookies_get} from "cookies";
 

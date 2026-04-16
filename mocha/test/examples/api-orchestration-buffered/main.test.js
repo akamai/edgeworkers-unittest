@@ -1,6 +1,6 @@
 import {httpRequest, HttpResponse, mock_HttpResponse_json} from "http-request";
 import {createResponse} from "create-response";
-import {responseProvider} from "../../../src/edgeworkers/examples/respond-from-edgeworkers/responseprovider/api-orchestration-buffered/main";
+import {responseProvider} from "../../../src/edgecompute/examples/orchestration/api-orchestration/main";
 import Request from "request";
 
 const sinon = require("sinon");

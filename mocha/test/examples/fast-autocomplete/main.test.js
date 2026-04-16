@@ -1,4 +1,4 @@
-import {onClientRequest} from "../../../src/edgeworkers/examples/respond-from-edgeworkers/respondwith/fast-autocomplete/main";
+import {onClientRequest} from "../../../src/edgecompute/examples/search/fast-autocomplete/main";
 import Request from "request";
 
 const sinon = require("sinon");

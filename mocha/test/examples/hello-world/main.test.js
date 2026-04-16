@@ -1,4 +1,4 @@
-import {onClientRequest, onClientResponse} from "../../../src/edgeworkers/examples/getting-started/hello-world/main";
+import {onClientRequest, onClientResponse} from "../../../src/edgecompute/examples/getting-started/hello-world (EW)/main";
 import Request from "request";
 import Response from "response";
 
