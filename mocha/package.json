@@ -31,7 +31,7 @@
   },
   "files": [
     "__mocks__",
-    "babel.config.js",
+    "babel.config.json",
     "package.*",
     "README.md"
   ],
