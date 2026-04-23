@@ -1,5 +1,5 @@
 import {mock_Cookies_get} from "cookies";
-import {onClientRequest} from "../../../src/edgeworkers/examples/respond-from-edgeworkers/respondwith/empty-cart/main";
+import {onClientRequest} from "../../../src/edgecompute/examples/surrogate-response/empty-cart/main";
 import Request from "request";
 
 const sinon = require("sinon");

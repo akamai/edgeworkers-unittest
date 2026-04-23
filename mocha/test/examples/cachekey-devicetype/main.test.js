@@ -1,4 +1,4 @@
-import {onClientRequest} from "../../../src/edgeworkers/examples/control-cache/cachekey-devicetype/main"
+import {onClientRequest} from "../../../src/edgecompute/examples/personalization/cachekey-devicetype/main"
 import Request from "request";
 
 const sinon = require("sinon");

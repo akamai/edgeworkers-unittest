@@ -26,7 +26,8 @@
     "moduleDirectories": [
       "node_modules",
       "./",
-      "../../../src/edgeworkers/examples",
+      ".",
+      "../../../src/edgecompute/examples",
       "../../../edgeworkers"
     ]
   },

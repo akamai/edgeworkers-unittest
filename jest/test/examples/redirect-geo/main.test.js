@@ -1,4 +1,4 @@
-import {onClientRequest} from "work-with-redirects/redirect-geo/main";
+import {onClientRequest} from "traffic-routing/redirect-geo/main";
 import Request from "request";
 
 test("onClientRequest calling respondWith", () => {

@@ -1,4 +1,4 @@
-import {onClientRequest} from "../../../src/edgeworkers/examples/work-with-redirects/redirect-geo/main";
+import {onClientRequest} from "../../../src/edgecompute/examples/traffic-routing/redirect-geo/main";
 import Request from "request";
 
 const sinon = require("sinon");

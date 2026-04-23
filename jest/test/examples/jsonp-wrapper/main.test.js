@@ -1,6 +1,6 @@
 import {httpRequest, HttpResponse} from "http-request";
 import {createResponse} from "create-response";
-import {responseProvider} from "respond-from-edgeworkers/responseprovider/jsonp-wrapper/main";
+import {responseProvider} from "stream/jsonp-wrapper/main";
 import Request from "request";
 import {TransformStream} from "streams";
 

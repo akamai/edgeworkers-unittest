@@ -1,4 +1,4 @@
-import {onClientRequest} from "../../../src/edgeworkers/examples/work-with-request-properties/forward-devicetype/main";
+import {onClientRequest} from "../../../src/edgecompute/examples/personalization/forward-devicetype/main";
 import Request from "request";
 
 const sinon = require("sinon");

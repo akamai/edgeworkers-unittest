@@ -1,4 +1,4 @@
-import {onClientRequest, onClientResponse} from "bundle-third-party-modules/typescript-module-bundle/src/main";
+import {onClientRequest, onClientResponse} from "typescript/typescript-module-bundle/src/main";
 import Request from "../../../__mocks__/request";
 import Response from "../../../__mocks__/response";
 
@@ -10,8 +10,7 @@ describe('demonstrates unit testing edgeworker written in TypeScript', () => {
     
     test("onClientRequest should respond with Hello World", () => {
         let requestMock = new Request();
-        let responseMock = new Response();
-        onClientRequest(requestMock, responseMock);
+        onClientRequest(requestMock);
         expect(requestMock.respondWith).toHaveBeenCalledTimes(1);
         expect(requestMock.respondWith).toHaveBeenCalledWith(200, {}, "<html><body><h1>Hello World From Akamai EdgeWorkers</h1></body></html>");
     });
