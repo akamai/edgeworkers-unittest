@@ -59,11 +59,14 @@ Make sure you have the following configured in the `package.json` file:
     "moduleDirectories": [
       "node_modules",
       "node_modules/edgeworkers-jest-mocks/__mocks__"
-    ]
+    ],
+    "moduleNameMapper": {
+      // `crypto` is a Node.js built-in, so Jest resolves it before checking moduleDirectories.
+      // This mapping explicitly redirects the bare `crypto` import to our mock instead.
+      "^crypto$": "<rootDir>/node_modules/edgeworkers-jest-mocks/__mocks__/crypto.js"
+    }
   }
   ```
-
-### Step 4:
 
 #### setup babel.config.json
 Babel is included as a dependency to fill in for the newer version of EcmaScript used by Akamai EdgeWorkers. To configure this correctly, add the following as a `babel.config.json` file (create a json file and name it as `babel.config.json` if it does not exists):
@@ -134,6 +137,9 @@ Example EdgeWorkers can be found [in the Akamai EdgeWorkers Examples](https://gi
 When contributing to the repository please describe the change or examples in detail in the pull request.
 
 ### contributing examples
+
+When writing tests, use bare imports (e.g. `import { mock_foo } from 'module-name'`) rather than relative paths into `__mocks__` (e.g. `'../../../__mocks__/module-name'`). The Jest configuration resolves bare imports to the correct mock automatically.
+
 - Create a pull request.
 - Once the pull request is created, If the contributing user has not previously signed a Contributor License Agreement (CLA), they must complete the CLA signing steps as indicated in the pull request. The CLA signature will be stored in an Akamai private repository in Github.
 - A code review will be performed by multiple Akamai members of the edgeworkers-unittest repository. The code review must receive at least 2 approvals.
