@@ -1,6 +1,6 @@
 import {onClientRequest, onClientResponse} from "../../../src/edgecompute/examples/typescript/typescript-module-bundle/src/main";
-import Request from "../../../__mocks__/request";
-import Response from "../../../__mocks__/response";
+import Request from "request";
+import Response from "response";
 
 const sinon = require("sinon");
 const expect = require('expect.js');

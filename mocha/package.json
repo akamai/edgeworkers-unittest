@@ -27,7 +27,7 @@
     "serialize-javascript": "^7.0.5"
   },
   "scripts": {
-    "test": "mocha --recursive --require ts-node/register"
+    "test": "mocha --recursive"
   },
   "files": [
     "__mocks__",
