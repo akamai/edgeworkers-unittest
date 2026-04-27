@@ -7,7 +7,7 @@ import {
   mockLoggerLog,
   mockLoggerTrace,
   mockLoggerWarn
-} from "../../../__mocks__/log";
+} from "log";
 
 const sinon = require("sinon");
 const expect = require("expect.js");

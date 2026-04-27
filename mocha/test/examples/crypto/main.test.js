@@ -9,7 +9,7 @@ import {
   mock_pem2ab,
   mock_crypto_subtle_sign,
   mock_crypto_subtle_verify,
-} from "../../../__mocks__/crypto";
+} from "crypto";
 
 const sinon = require("sinon");
 const expect = require("expect.js");
