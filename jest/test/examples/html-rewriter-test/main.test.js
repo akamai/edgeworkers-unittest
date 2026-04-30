@@ -6,7 +6,7 @@ import { handler as removeHandler } from "edgeworkers/examples/html-rewriter/rem
 import { handler as replaceHandler } from "edgeworkers/examples/html-rewriter/replace-children/main";
 import { createResponse } from "create-response";
 import { httpRequest, HttpResponse } from "http-request";
-import { Element } from "../../../__mocks__/html-rewriter";
+import { Element } from "html-rewriter";
 
 describe("EdgeWorker that consumes an HTML document and rewrites it", () => {
   beforeEach(() => {

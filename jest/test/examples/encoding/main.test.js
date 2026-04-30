@@ -14,7 +14,7 @@ import {
   mock_base64_encode,
   mock_base64url_decode,
   mock_base64url_encode
-} from "../../../__mocks__/encoding";
+} from "encoding";
 
 describe("EdgeWorker that has atob, btoa, baseX.decode, baseX.encode usage", () => {
   beforeEach(() => {
@@ -45,7 +45,7 @@ describe("EdgeWorker that has atob, btoa, baseX.decode, baseX.encode usage", () 
         33
       ])
     );
-    expect(atob).toBeCalledWith("V29ybGQ=");
+    expect(atob).toHaveBeenCalledWith("V29ybGQ=");
   });
 
   test("onOriginRequest decodes Hello World by using btoa, base64url.decode, base64url.encode, base16.encode and base16.decode", () => {
