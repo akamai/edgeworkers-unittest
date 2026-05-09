@@ -13,7 +13,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-xo": "^0.27.2",
     "eslint-plugin-prettier": "^3.4.1",
-    "jest": "^27.5.1",
+    "jest": "^30.4.2",
     "md5": "^2.3.0",
     "prettier": "^1.19.1"
   },
