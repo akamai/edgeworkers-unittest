@@ -1,4 +1,4 @@
-import {onClientRequest} from "../../../src/edgeworkers/examples/respond-from-edgeworkers/respondwith/commerce-categories/main";
+import {onClientRequest} from "../../../src/edgecompute/examples/search/commerce-categories/main";
 import Request from "request";
 
 const sinon = require("sinon");

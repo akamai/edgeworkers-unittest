@@ -1,4 +1,4 @@
-import {onClientRequest} from "../../../src/edgeworkers/examples/respond-from-edgeworkers/respondwith/conference-details/main";
+import {onClientRequest} from "../../../src/edgecompute/examples/traffic-filtering/conference-details/main";
 import Request from "request";
 
 const sinon = require("sinon");

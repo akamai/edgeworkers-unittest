@@ -1,4 +1,4 @@
-import { logger } from "../../../__mocks__/log";
+import { logger } from "log";
 
 export function onClientRequest(request) {
   logger.debug("b", "c", "d");

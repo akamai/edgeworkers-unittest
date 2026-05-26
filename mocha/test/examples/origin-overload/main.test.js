@@ -1,4 +1,4 @@
-import {onOriginResponse} from "../../../src/edgeworkers/examples/work-with-origin-issues/origin-overload/main";
+import {onOriginResponse} from "../../../src/edgecompute/examples/error-handling/origin-overload/main";
 import Request from "request";
 import Response from "response";
 

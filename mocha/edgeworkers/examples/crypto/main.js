@@ -1,4 +1,4 @@
-import { crypto, pem2ab } from "../../../__mocks__/crypto";
+import { crypto, pem2ab } from "crypto";
   
 export function onClientRequest(request) {
   //verifying getRandomValues()

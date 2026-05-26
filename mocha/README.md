@@ -168,6 +168,9 @@ Example EdgeWorkers can be found [in the Akamai EdgeWorkers Examples](https://gi
 When contributing to the repository please describe the change or examples in detail in the pull request.
 
 ### contributing examples
+
+When writing tests, use bare imports (e.g. `import { mock_foo } from 'module-name'`) rather than relative paths into `__mocks__` (e.g. `'../../../__mocks__/module-name'`). The Babel `module-resolver` plugin resolves bare imports to the correct mock automatically.
+
 - Create a pull request.
 - Once the pull request is created, If the contributing user has not previously signed a Contributor License Agreement (CLA), they must complete the CLA signing steps as indicated in the pull request. The CLA signature will be stored in an Akamai private repository in Github.
 - A code review will be performed by multiple Akamai members of the edgeworkers-unittest repository. The code review must receive at least 2 approvals.

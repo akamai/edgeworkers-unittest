@@ -1,4 +1,4 @@
-import {onOriginRequest} from "../../../src/edgeworkers/examples/work-with-cookies/remove-cookies/main";
+import {onOriginRequest} from "../../../src/edgecompute/examples/tracking/remove-cookies/main";
 import Request from "request";
 import {Cookies, mock_Cookies_names, mock_Cookies_delete} from "cookies";
 

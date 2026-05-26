@@ -1,4 +1,4 @@
-import {onClientResponse} from "../../../src/edgeworkers/examples/work-with-cookies/cookie-accrual/main";
+import {onClientResponse} from "../../../src/edgecompute/examples/tracking/cookie-accrual/main";
 import Request from "request";
 import Response from "response";
 import {SetCookie, mock_Cookies_get, mock_SetCookie_toHeader} from "cookies";

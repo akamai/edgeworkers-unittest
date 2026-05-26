@@ -1,6 +1,6 @@
-import {onClientRequest, onClientResponse} from "../../../src/edgeworkers/examples/bundle-third-party-modules/typescript-module-bundle/src/main";
-import Request from "../../../__mocks__/request";
-import Response from "../../../__mocks__/response";
+import {onClientRequest, onClientResponse} from "../../../src/edgecompute/examples/typescript/typescript-module-bundle/src/main";
+import Request from "request";
+import Response from "response";
 
 const sinon = require("sinon");
 const expect = require('expect.js');
@@ -13,8 +13,7 @@ describe('demonstrates unit testing edgeworker written in TypeScript', () => {
     
     it("onClientRequest should respond with Hello World", () => {
         let requestMock = new Request();
-        let responseMock = new Response();
-        onClientRequest(requestMock, responseMock);
+        onClientRequest(requestMock);
         expect(requestMock.respondWith.callCount).to.be(1);
         expect(requestMock.respondWith.calledWith(200, {}, "<html><body><h1>Hello World From Akamai EdgeWorkers</h1></body></html>")).to.be(true);
     });

@@ -1,6 +1,6 @@
 import Request from "request";
 import {onClientRequest} from "../../../edgeworkers/examples/respond-from-edgeworkers/encoding/text-encoder/main";
-import {mock_TextEncoder_encode} from "../../../__mocks__/encoding";
+import {mock_TextEncoder_encode} from "encoding";
 
 describe('EdgeWorker that converts a string into a Uint8Array array of bytes and respond with encoding information', () => {
 

@@ -1,6 +1,6 @@
 import {httpRequest, HttpResponse} from "http-request";
 import {createResponse} from "create-response";
-import {responseProvider} from "../../../src/edgeworkers/examples/respond-from-edgeworkers/responseprovider/jsonp-wrapper/main";
+import {responseProvider} from "../../../src/edgecompute/examples/stream/jsonp-wrapper/main";
 import Request from "request";
 import {TransformStream} from "streams";
 
@@ -26,7 +26,7 @@ describe('wrap JSON response with dynamic unique callback function leveraging Re
 
         responsePromise.then( (response) => {
             expect(createResponse.calledWith(200, {}, mockHttpResponse.body)).to.be(true);
-            expect(response).toEqual({"status":200, "headers":{}, "body":{}});
+            expect(response).to.eql({"status":200, "headers":{}, "body":{}});
         }).catch((error)=>console.log(error));
     });
 });
