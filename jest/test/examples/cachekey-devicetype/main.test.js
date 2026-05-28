@@ -1,4 +1,4 @@
-import {onClientRequest} from "control-cache/cachekey-devicetype/main"
+import {onClientRequest} from "personalization/cachekey-devicetype/main"
 import Request from "request";
 
 describe('Include devcie type in cachekey', () => {

@@ -1,6 +1,6 @@
-import {httpRequest, HttpResponse, mock_HttpResponse_json} from "http-request";
+import {httpRequest, HttpResponse, mock_HttpResponse_getHeaders} from "http-request";
 import {createResponse} from "create-response";
-import {responseProvider} from "respond-from-edgeworkers/responseprovider/response-manipulation-stream/main";
+import {responseProvider} from "stream/response-manipulation/main";
 import Request from "request";
 import {TextDecoderStream, TextEncoderStream} from "text-encode-transform";
 
@@ -15,6 +15,7 @@ describe('demonstrates how an EdgeWorker can be used to modify an HTML response 
         let requestMock = new Request();
         let mockHttpResponse = new HttpResponse();
         createResponse.mockReturnValue({"status":200, "headers":{}, "body":{}});
+        mock_HttpResponse_getHeaders.mockReturnValue({});
         httpRequest.mockReturnValue(new Promise(function(resolve) {resolve(mockHttpResponse)}));
 
         const responsePromise = responseProvider(requestMock);

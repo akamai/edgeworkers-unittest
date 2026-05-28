@@ -9,7 +9,7 @@ import {
   mock_pem2ab,
   mock_crypto_subtle_sign,
   mock_crypto_subtle_verify
-} from "../../../__mocks__/crypto";
+} from "crypto";
 
 describe("Crypto EW", () => {
   test("onClientRequest getRandomValues(), digest(), importKey(), encrypt(), decrypt(), pem2ab(), sign(), verify()", () => {

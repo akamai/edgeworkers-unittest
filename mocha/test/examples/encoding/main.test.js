@@ -13,7 +13,7 @@ import {
     mock_base64_encode,
     mock_base64url_decode,
     mock_base64url_encode
-} from "../../../__mocks__/encoding";
+} from "encoding";
 
 const expect = require("expect.js");
 const sinon = require("sinon");

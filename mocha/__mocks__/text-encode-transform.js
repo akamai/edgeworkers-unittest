@@ -1,7 +1,9 @@
 const sinon = require("sinon");
 
-export class TextEncoderStream {
-}
+export const TextEncoderStream = sinon.stub().callsFake(() => {
+    return {};
+});
 
-export class TextDecoderStream {
-}
+export const TextDecoderStream = sinon.stub().callsFake(() => {
+    return {};
+});

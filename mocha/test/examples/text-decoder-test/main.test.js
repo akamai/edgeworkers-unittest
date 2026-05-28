@@ -1,6 +1,6 @@
 import Request from "request";
 import {onClientRequest} from "../../../edgeworkers/examples/respond-from-edgeworkers/encoding/text-decoder/main";
-import {mock_TextDecoder_decode} from "../../../__mocks__/encoding";
+import {mock_TextDecoder_decode} from "encoding";
 
 const expect = require('expect.js');
 const sinon = require("sinon");

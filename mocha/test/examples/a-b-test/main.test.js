@@ -1,6 +1,6 @@
 // eslint-disable-next-line camelcase
 import {mock_Cookies_get, mock_Cookies_add, mock_Cookies_delete, mock_SetCookie_toHeader, mock_Cookies_toHeader} from "cookies";
-import {onClientRequest, onClientResponse} from "../../../src/edgeworkers/examples/control-origin-routes/a-b-test/main";
+import {onClientRequest, onClientResponse} from "../../../src/edgecompute/examples/traffic-routing/ab-test (EW)/main";
 import Request from "request";
 import Response from "response";
 

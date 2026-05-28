@@ -7,7 +7,7 @@ import {
   mockLoggerLog,
   mockLoggerTrace,
   mockLoggerWarn
-} from "../../../__mocks__/log";
+} from "log";
 
 describe("Logger EW", () => {
   test("onClientRequest log(), info(), trace(), error(), debug()", () => {

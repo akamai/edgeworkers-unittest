@@ -1,4 +1,4 @@
-import {onClientRequest} from "../../../src/edgeworkers/examples/work-with-request-properties/traffic-allow-list/main.js";
+import {onClientRequest} from "../../../src/edgecompute/examples/traffic-filtering/traffic-allow-list/main.js";
 import Request from "request";
 
 const sinon = require("sinon");
