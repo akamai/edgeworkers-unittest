@@ -34,3 +34,19 @@ export class ReadableStream {
 export const WritableStream = sinon.stub().callsFake(() => {
     return {};
 });
+
+export const mockCompressionStream = sinon.stub();
+export const CompressionStream = mockCompressionStream.callsFake(() => {
+    return {
+        readable: ReadableStream,
+        writable: WritableStream
+    };
+});
+
+export const mockDecompressionStream = sinon.stub();
+export const DecompressionStream = mockDecompressionStream.callsFake(() => {
+    return {
+        readable: ReadableStream,
+        writable: WritableStream
+    };
+});
