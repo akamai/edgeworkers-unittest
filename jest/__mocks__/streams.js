@@ -29,5 +29,25 @@ export const ReadableStream = jest.fn().mockImplementation(() => {
 });
 
 export const WritableStream = jest.fn().mockImplementation(() => {
-    return {};
+  return {};
 });
+
+export const mockCompressionStream = jest.fn();
+export const mockDecompressionStream = jest.fn();
+export const CompressionStream = mockCompressionStream.mockImplementation(
+  () => {
+    return {
+      readable: ReadableStream,
+      writable: WritableStream
+    };
+  }
+);
+
+export const DecompressionStream = mockDecompressionStream.mockImplementation(
+  () => {
+    return {
+      readable: ReadableStream,
+      writable: WritableStream
+    };
+  }
+);
